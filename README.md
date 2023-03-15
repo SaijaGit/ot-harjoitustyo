@@ -50,5 +50,5 @@ _Aikataulu haettu sivulta: (https://ohjelmistotekniikka-hy.github.io/harjoitusty
 
 
 
-### Kurssimateriaali ja tehtävät
+### Kurssimateriaali ja tehtävät:
 (https://ohjelmistotekniikka-hy.github.io/materiaali)
