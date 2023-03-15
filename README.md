@@ -2,36 +2,53 @@
 
 ## Tehtävät ja harjoitustyö
 
-### Aikataulu
-#### Viikko 1
+### Viikko 1
 Palautuksen deadline tiistai __21.3.__ klo 23:59
-Tehtävät
+#### Tehtävät
+- [gitlog.txt](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
-#### Viikko 2
+- [komentorivi.txt](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+
+
+### Viikko 2
 Palautuksen deadline tiistai __28.3.__ klo 23:59
-Harjoitustyö ja tehtävät
+#### Harjoitustyö ja tehtävät
 
-#### Viikko 3
+
+
+### Viikko 3
 Palautuksen deadline tiistai __4.4.__ klo 23:59
-Harjoitustyö ja tehtävät
+#### Harjoitustyö ja tehtävät
 
-#### Viikko 4
+
+
+### Viikko 4
 Palautuksen deadline tiistai __18.4.__ klo 23:59
-Harjoitustyö
+#### Harjoitustyö
 
-#### Viikko 5
+
+
+### Viikko 5
 Palautuksen deadline tiistai __25.4.__ klo 23:59
-Harjoitustyö
+#### Harjoitustyö
 
-#### Viikko 6
+
+
+### Viikko 6
 Palautuksen deadline tiistai __2.5.__ klo 23:59
-Harjoitustyö
+#### Harjoitustyö
+
+
 
 #### Lopullinen palautus
 Palautuksen deadline sunnuntai __14.5.__ klo 23:59
-Loppupalautus
+#### Loppupalautus
+
+
 
 _Aikataulu haettu sivulta: (https://ohjelmistotekniikka-hy.github.io/harjoitustyo)_
+
+
 
 ### Kurssimateriaali ja tehtävät
 (https://ohjelmistotekniikka-hy.github.io/materiaali)
