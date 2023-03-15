@@ -1,0 +1,7 @@
+C:\USERS\MARKE\KURSSIT
+└───ot2023
+    └───viikko1
+        └───unicafe
+            └───unicafe
+                └───src
+                    └───tests

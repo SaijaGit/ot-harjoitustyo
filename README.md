@@ -1,0 +1,37 @@
+# Ohjelmistotekniikka, kevät 2023
+
+## Tehtävät ja harjoitustyö
+
+### Aikataulu
+#### Viikko 1
+Palautuksen deadline tiistai __21.3.__ klo 23:59
+Tehtävät
+
+#### Viikko 2
+Palautuksen deadline tiistai __28.3.__ klo 23:59
+Harjoitustyö ja tehtävät
+
+#### Viikko 3
+Palautuksen deadline tiistai __4.4.__ klo 23:59
+Harjoitustyö ja tehtävät
+
+#### Viikko 4
+Palautuksen deadline tiistai __18.4.__ klo 23:59
+Harjoitustyö
+
+#### Viikko 5
+Palautuksen deadline tiistai __25.4.__ klo 23:59
+Harjoitustyö
+
+#### Viikko 6
+Palautuksen deadline tiistai __2.5.__ klo 23:59
+Harjoitustyö
+
+#### Lopullinen palautus
+Palautuksen deadline sunnuntai __14.5.__ klo 23:59
+Loppupalautus
+
+_Aikataulu haettu sivulta: (https://ohjelmistotekniikka-hy.github.io/harjoitustyo)_
+
+### Kurssimateriaali ja tehtävät
+(https://ohjelmistotekniikka-hy.github.io/materiaali)

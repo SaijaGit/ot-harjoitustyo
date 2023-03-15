@@ -1,0 +1,107 @@
+commit 40e0cbace2d5bef6b0bd1fc1db3e0adf05f34f0e (HEAD -> master)
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 12:29:29 2023 +0200
+
+    paljon muutoksia
+
+ tiedostoja/file3 | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 84a938e6dfe80a579f75c46e6c7474b2d633c10a
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 12:18:18 2023 +0200
+
+    Lisättiin hakemisto tiedostoja sekä tiedostot file1, file2 ja file3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit cad60e10bc880660af8ba87d348a4eb9b7029b91
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 03:14:45 2023 +0200
+
+    muutettiin tiedoston nimi ekaksi ja lisättiin se committiin
+
+ tiedosto.txt => eka.txt      | 6 ++++--
+ kolmas.txt                   | 4 +++-
+ stuff/tiedostostuffissa.text | 0
+ 3 files changed, 7 insertions(+), 3 deletions(-)
+
+commit 829e6e3ae19118a45cf885ed8f706a5d07975bd8
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:52:02 2023 +0200
+
+    muutettiin tiedoston nimi ekaksi
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 953365c3d2268f6b0f8648e9be687c96e46c451f
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:43:00 2023 +0200
+
+    Lisättiin kehuja shetlanninponeille.
+
+ tiedosto.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 5968fdff84f77862a9f127ab7e06ae6f32e548e7
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:39:07 2023 +0200
+
+    Lisättiin Shetlantilaiset tiedostoon
+
+ tiedosto.txt | 75 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 74 insertions(+), 1 deletion(-)
+
+commit e893e8b6ed73083da1f2dc8151c6f9a00dd4462e
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:21:50 2023 +0200
+
+    stuff lisäys
+
+ stuff/tiedostostuffissa.text | 0
+ stuff/tiedostostuffissa.txt  | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 26b6af325064584d7c1a4caadffebaa23002ab5d
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:19:50 2023 +0200
+
+    toinen ja kolmas muutos
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 60be71d6aab6bceed855b9c57377759c1790fb7b
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:17:31 2023 +0200
+
+    kolmas
+
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 58424bda6c53eabad40ed6d1a68cac2b4e966c59
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:14:50 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7e9d93104857d9a61629f8483fc97e734e80d206
+Author: SaijaGit <saija.piira@gmail.com>
+Date:   Wed Mar 15 02:02:35 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+(END)
