@@ -9,6 +9,8 @@ Palautuksen deadline tiistai __21.3.__ klo 23:59
 
 - [komentorivi.txt](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
+- [Huomautus viikon 1 tehtävistä!](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko1/Huomautus%20viikon%201%20teht%C3%A4vist%C3%A4!)
+
 
 ### Viikko 2
 Palautuksen deadline tiistai __28.3.__ klo 23:59
