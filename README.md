@@ -14,7 +14,14 @@ Palautuksen deadline tiistai __21.3.__ klo 23:59
 
 ### Viikko 2
 Palautuksen deadline tiistai __28.3.__ klo 23:59
-#### Harjoitustyö ja tehtävät
+#### Tehtävät
+- [maksukortti](https://github.com/SaijaGit/ot-harjoitustyo/tree/main/laskarit/viikko2/maksukortti)
+
+- [unicafe](https://github.com/SaijaGit/ot-harjoitustyo/tree/main/laskarit/viikko2/unicafe)
+
+- [Coverage report](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot%202023-03-23%20at%2003-09-46%20Coverage%20report.png)
+
+#### Harjoitustyö
 
 
 
