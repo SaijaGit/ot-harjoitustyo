@@ -29,6 +29,8 @@ Käyttöliittymäluonnokset on tehty Excelillä, ja kuvitukset ovat Excelin ikon
 
 ## Jatkokehitysideat
 Sovellukseen voisi kehittää hakutoimintoja ja filttereitä haluttujen viestin löytämisen helpottamiseksi. Sopivia filttereitä voisivat olla esimerkiksi viestin kieli ja tyylilaji (muodollinen / tuttavallinen). Tätä varten ohjelmaan pitäisi lisätä viestikategoriat, jotka lisättäisiin viesteille luomisvaiheessa.
-<br>Toinen hyödyllinen ominaisuus olisi mahdollisuus siirtää viestejä ryhmästä toiseen ja vaihtaa niiden järjestystä ryhmässä.
+
+Toinen hyödyllinen ominaisuus olisi mahdollisuus siirtää viestejä ryhmästä toiseen ja vaihtaa niiden järjestystä ryhmässä.
 Sovellukseen voisi lisätä myös mahdollisuuden merkitä tietyt viesti suosikeiksi, jolloin ne näkyisivät automaattisesti listan alussa.
-<br>Muita jatkokehitysideoita ovat ”Undo” -nappi, jolla käyttäjä voisi perua tekemiään muokkauksia, sekä viestipohjien tallennus suoraan pääikkunan tekstikentästä.
+
+Muita jatkokehitysideoita ovat ”Undo” -nappi, jolla käyttäjä voisi perua tekemiään muokkauksia, sekä viestipohjien tallennus suoraan pääikkunan tekstikentästä.
