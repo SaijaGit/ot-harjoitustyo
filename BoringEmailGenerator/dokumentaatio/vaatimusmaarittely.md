@@ -21,9 +21,9 @@ Käyttäjä voi tallentaa usein kirjoittamansa viestit sovellukseen. Viestipohja
 Sovelluksessa on vain yksi käyttäjä. Koska sovellus on tarkoitettu toimimaan työpöytäsovelluksena ja tallentamaan tiedot käyttäjän omalle tietokoneelle, siinä ei tarvita erillistä käyttäjätiliä tai sisäänkirjautumista.
 
 ## Käyttöliittymäluonnos
-Sovelluksessa on kaksi ikkunaa. Ensimmäisenä avautuu pääikkuna, jossa viestit koostetaan. 
+Sovelluksessa on kaksi ikkunaa. Ensimmäisenä avautuu pääikkuna, jossa viestit koostetaan. ”Modify templates”-napilla aukeaa muokkausikkuna, jossa sovelluksen tallentamia viestipohjia voi muokata.
 ![](./kuvat/kayttoliittyma1.png)
-”Modify templates”-napilla aukeaa muokkausikkuna, jossa sovelluksen tallentamia viestipohjia voi muokata.
+
 ![](./kuvat/kayttoliittyma2.png)
 Käyttöliittymäluonnokset on tehty Excelillä, ja kuvitukset ovat Excelin ikoneita.
 
