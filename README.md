@@ -22,7 +22,9 @@ Palautuksen deadline tiistai __28.3.__ klo 23:59
 - [coverage report](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot%202023-03-23%20at%2003-09-46%20Coverage%20report.png)
 
 #### Harjoitustyö
+- [Vaatimusmäärittely](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/dokumentaatio/vaatimusmaarittely.md)
 
+- [Työaikakirjanpito](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/dokumentaatio/tuntikirjanpito.md)
 
 
 ### Viikko 3
