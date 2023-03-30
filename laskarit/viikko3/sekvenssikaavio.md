@@ -3,11 +3,11 @@
 ## Viikko 3
 ### Tehtävä 3: Sekvenssikaavio
 
-Tarkastellaan bensatankista ja moottorista koostuvan koneen Python-koodia.
+Sekvenssikaavio koneelle, joka koostuu bensatankista ja moottorista.
 
-Piirrä sekvenssikaaviona tilanne, jossa kutsutaan (jostain koodin ulkopuolella olevasta metodista) ensin Machine-luokan konstruktoria ja sen jälkeen luodun Machine-olion metodia drive.
+Kaaviossa on kuvattu tilanne, jossa kutsutaan (jostain koodin ulkopuolella olevasta metodista) ensin Machine-luokan konstruktoria ja sen jälkeen luodun Machine-olion metodia drive.
 
-Muista, että sekvenssikaaviossa tulee tulla ilmi kaikki mainin suorituksen aikaansaamat olioiden luomiset ja metodien kutsut!
+
 
 Sekvenssikaavio:
 
