@@ -29,7 +29,16 @@ Palautuksen deadline tiistai __28.3.__ klo 23:59
 
 ### Viikko 3
 Palautuksen deadline tiistai __4.4.__ klo 23:59
-#### Harjoitustyö ja tehtävät
+#### Tehtävät
+- [Monopoli](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/monopoli.md)
+
+- [Laajennettu Monopoli](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/laajennettu_monopoli.md)
+
+- [Sekvenssikaavio](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/sekvenssikaavio.md)
+
+- [Laajempi sekvenssikaavio](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/laajempi_sekvenssikaavio.md)
+
+#### Harjoitustyö
 
 
 
