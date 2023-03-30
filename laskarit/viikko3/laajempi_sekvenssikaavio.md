@@ -1,7 +1,7 @@
 
 # Ohjelmistotekniikka, kevät 2023 - Tehtävät
 ## Viikko 3
-### Tehtävä 3: Sekvenssikaavio
+### Tehtävä 4: Laajempi sekvenssikaavio
 
 Sekvenssikaavio kuvitteellisen HSL-matkakorttien hallintaan käytettävän koodin main-funktion toiminnallisuudelle.
 
