@@ -9,14 +9,15 @@ Sekvenssikaavio kuvitteellisen HSL-matkakorttien hallintaan käytettävän koodi
 
 Sekvenssikaavio:
 
+
 ```mermaid
 sequenceDiagram
     participant main
-    participant Kioski
-    participant Matkakortti
+    
+    participant HKLLaitehallinto
     participant Lataajalaite
     participant Lukijalaite
-    participant HKLLaitehallinto
+
 
     main ->> HKLLaitehallinto: Luodaan uusi HKLLaitehallinto-olio
     main ->> Lataajalaite: Luodaan uusi Lataajalaite-olio (rautatietori)
@@ -25,10 +26,15 @@ sequenceDiagram
     main ->> HKLLaitehallinto: lisaa_lataaja(rautatietori)
     main ->> HKLLaitehallinto: lisaa_lukija(ratikka6)
     main ->> HKLLaitehallinto: lisaa_lukija(bussi244)
-
+    
+    participant Kioski
+    participant Matkakortti
+    
     main ->> Kioski: Luodaan uusi Kioski-olio
     main ->> Kioski: osta_matkakortti("Kalle")
     Kioski ->> Matkakortti: Luodaan uusi Matkakortti-olio
+    Kioski ->> main: return uusi_kortti
+    
     main ->> Lataajalaite: lataa_arvoa(kallen_kortti, 3)
     Lataajalaite ->> Matkakortti: kasvata_arvoa(3)
 
