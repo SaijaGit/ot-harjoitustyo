@@ -9,21 +9,31 @@ Alustava luokkakkaavio:
 
 ```mermaid
 classDiagram
-    Ruutu "40" -- Pelilauta 
+    Monopolipeli "1" -- "1" Pelilauta
+    Monopolipeli "1" -- "2..8" Pelaaja
+    Monopolipeli "1" -- "2" Noppa
+
+    class Monopolipeli{
+        Pelilauta
+        Pelaajat
+        Noppa
+    }
+
+    Ruutu "40" -- "1" Pelilauta 
     class Ruutu{
         seuraava
     }
-    Noppa "2" -- "1" Pelilauta
+
     class Noppa{
         silmäluku
     }
-    Pelaaja "2..8" -- "1" Pelilauta
+
     class Pelaaja{
         Pelinappula
     }
 
     Pelinappula "1" -- "1" Pelaaja
-    Pelinappula "1" -- "1" Ruutu
+    Pelinappula "0..8" -- "1" Ruutu
     class Pelinappula{
         Ruutu
     }
