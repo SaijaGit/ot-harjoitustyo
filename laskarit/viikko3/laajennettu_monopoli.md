@@ -5,19 +5,14 @@
 
 Laajennetaan edellisen tehtävän luokkakaaviota tuomalla esiin seuraavat asiat:
 
-Ruutuja on useampaa eri tyyppiä: Aloitusruutu, Vankila, Sattuma ja yhteismaa, Asemat ja laitokset, Normaalit kadut (joihin liittyy nimi)
+- Ruutuja on useampaa eri tyyppiä: Aloitusruutu, Vankila, Sattuma ja yhteismaa, Asemat ja laitokset, Normaalit kadut (joihin liittyy nimi)
+- Monopolipelin täytyy tuntea sekä aloitusruudun että vankilan sijainti.
+- Jokaiseen ruutuun liittyy jokin toiminto.
+- Sattuma- ja yhteismaaruutuihin liittyy kortteja, joihin kuhunkin liittyy joku toiminto.
+- Toimintoja on useanlaisia. Ei ole vielä tarvetta tarkentaa toiminnon laatua.
+- Normaaleille kaduille voi rakentaa korkeintaan 4 taloa tai yhden hotellin. Kadun voi omistaa joku pelaajista. Pelaajilla on rahaa.
 
-Monopolipelin täytyy tuntea sekä aloitusruudun että vankilan sijainti.
-
-Jokaiseen ruutuun liittyy jokin toiminto.
-
-Sattuma- ja yhteismaaruutuihin liittyy kortteja, joihin kuhunkin liittyy joku toiminto.
-
-Toimintoja on useanlaisia. Ei ole vielä tarvetta tarkentaa toiminnon laatua.
-
-Normaaleille kaduille voi rakentaa korkeintaan 4 taloa tai yhden hotellin. Kadun voi omistaa joku pelaajista. Pelaajilla on rahaa.
-
-Alustava luokkakkaavio:
+Luokkakkaavio:
 
 ```mermaid
 classDiagram
@@ -28,10 +23,8 @@ classDiagram
     class Monopolipeli{
     }
     class Noppa{
-        silmäluku
     }
     class Pelaaja{
-        Pelinappula
     }
 
     Raha "*" -- "1" Pelaaja
@@ -61,8 +54,8 @@ classDiagram
     Asemat ja laitokset --|> Ruutu
     Normaalit kadut --|> Ruutu
 
-    Aloitusruutu "1" -- "1" Monopolipeli
-    Vankila "1" -- "1" Monopolipeli
+    Aloitusruutu "1" ..> "1" Monopolipeli
+    Vankila "1" ..> "1" Monopolipeli
 
     class Aloitusruutu{
     }
@@ -77,6 +70,7 @@ classDiagram
     }
 
     Kortti "*" -- "*" Sattuma ja yhteismaa 
+    Kortti "1" --> "*" Ruutu
     class Kortti{
     }
 

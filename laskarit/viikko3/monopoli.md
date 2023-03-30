@@ -14,9 +14,6 @@ classDiagram
     Monopolipeli "1" -- "2" Noppa
 
     class Monopolipeli{
-        Pelilauta
-        Pelaajat
-        Noppa
     }
 
     Ruutu "40" -- "1" Pelilauta 
@@ -25,17 +22,14 @@ classDiagram
     }
 
     class Noppa{
-        silmäluku
     }
 
     class Pelaaja{
-        Pelinappula
     }
 
     Pelinappula "1" -- "1" Pelaaja
     Pelinappula "0..8" -- "1" Ruutu
     class Pelinappula{
-        Ruutu
     }
 
 
