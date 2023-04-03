@@ -38,7 +38,7 @@
 #### Harjoitustyö
 - [Boring Email Generator](./BoringEmailGenerator)
 
-- [Testikattavuusraportti 3.4.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-04-03%20at%2004-01-02%20Coverage%20report.png)
+- [Testikattavuusraportti 3.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
 
 - [Changelog](./BoringEmailGenerator/dokumentaatio/Changelog.md)
 
