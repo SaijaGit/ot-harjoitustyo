@@ -12,4 +12,5 @@ Tämänhetkistä luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/o
 
 Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 48%, mutta varsinaisesti testatun MessageDB-luokan osalta 97%.
 
-![](./kuvat/Screenshot 2023-04-03 at 04-01-02 Coverage report.png)
+![](./kuvat/Screenshot_2023-04-03_at_04-01-02_Coverage_report.png)
+
