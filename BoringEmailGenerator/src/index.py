@@ -1,12 +1,13 @@
 from tkinter import Tk
 from ui.ui_mainwindow import UI
 from repositories.db_messages import MessageDB
+from config import DATABASE
 
 
 def main():
 
-    db_file = 'messages.db'
-    database = MessageDB(db_file)
+    #db_file = 'messages.db'
+    database = MessageDB(DATABASE)
 
     window = Tk()
     window.title("Boring Email Generator")

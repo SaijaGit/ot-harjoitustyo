@@ -5,6 +5,34 @@ def get_example_group_names():
 
 
 def get_example_message_texts() :
+
+    whale = r'''
+          .':'.
+         ___:____     |¨\/¨|
+       ,'        `.    \  /
+       |  O        \___/  |
+    ~^~^~^~^~^~^~^~^~^~^~^~^~ 
+
+    '''
+    hippo =  r'''
+          c~~p ,---------.
+     ,---'oo  )            \
+    ( O O                   )/
+      `=^='                 /
+           \    ,     .    /
+            \\  |----'|   /
+            ||__|   |_|__|
+
+    '''
+
+    cat = r'''
+      _._     _,-'""`-._
+     (,-.`._,'(       |\`-/|
+         `-.-' \ )-`( , o o)
+               `-    \`_`*'- 
+
+    '''
+
     example_message_texts = [["\nHello [RECIPIENT], \nI hope you're having a fantastic day! ", 
                             "\nDear [RECIPIENT], \nI’m reaching out to you because … ", 
                             "\nHi [RECIPIENT],\nand thank you for your quick response! "] ,
@@ -25,15 +53,20 @@ def get_example_message_texts() :
                             ["\nOur office will be closed from [DATE] to [DATE] for the Christmas holidays. In the meantime, we would like to wish you and your loved ones a Merry Christmas and a Happy New Year! ",
                                 "\nWishing you a great Halloween and a fantastic fall! "],
                                 
-                            ["\n     .':'.\n    ___:____     |¨\/¨|\n  ,'        `.    \  /\n  |  O        \___/  |\n~^~^~^~^~^~^~^~^~^~^~^~^~", 
-                                "\n      c~~p ,---------. \n ,---'oo  )           \ \n( O O                  )/ \n `=^='                 / \n       \    ,     .   / \n       \ \  |----'|  /\n       ||__|    |_|__|",
-                                "\n _._     _,-'""`-._ \n(,-.`._,'(       |\`-/| \n    `-.-' \ )-`( , o o) \n          `-    \`_`*'- "],
+                            [whale, hippo, cat],
                             
                             ["\nFirst 100 decimal places of pi are 3,14159 26535 89793 23846 26433 83279 50288 41971 69399 37510 58209 74944 59230 78164 06286 20899 86280 34825 34211 70679.", 
-                                "\nShetland ponies are not only incredibly adorable, but they also make great pets and companions. They are known for their hardy and resilient nature, and they are surprisingly strong. They are intelligent and eager to please, making them great for training and learning new tricks. Shetland ponies are a wonderful addition to any family and are sure to bring joy and happiness to those who have the pleasure of owning one.",
+                                "\nShetland ponies are not only incredibly adorable, but they also make great pets and companions. They are known for their hardy and resilient nature, and they are surprisingly strong considering that they are usually only about a meter tall. They are intelligent and eager to please, making them great for training and learning new tricks. Shetland ponies are a wonderful addition to any family and are sure to bring joy and happiness to those who have the pleasure of owning one.",
                                 "\nWhen a cowplant gets hungry, a piece of cake appears hanging from its mouth. If you grab the cake to eat it, the cowplant will swallow you. On the first time notehing really bad happens, as the cowplant just spits you back out. But if you try to get the cake again in a short time, you will be swallowed by the cowplant and never seen again."],
                             
                             ["\nThank you for your time and consideration. I look forward to hearing back from you soon.\nBest regards,\n",
                                 "\nPlease let me know if you have any questions or if there is anything else I can provide to help move this project forward. I look forward to hearing back from you soon. \nKind regards, \n",
                                 "\nSo long and thanks for all the fish!"]]
+    
+
+    #["\n     .':'.\n    ___:____     |¨\/¨|\n  ,'        `.    \  /\n  |  O        \___/  |\n~^~^~^~^~^~^~^~^~^~^~^~^~", 
+    #                           "\n      c~~p ,---------. \n ,---'oo  )           \ \n( O O                  )/ \n `=^='                 / \n       \    ,     .   / \n       \ \  |----'|  /\n       ||__|    |_|__|",
+    #                           "\n _._     _,-'""`-._ \n(,-.`._,'(       |\`-/| \n    `-.-' \ )-`( , o o) \n          `-    \`_`*'- "],
+
+
     return example_message_texts
