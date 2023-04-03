@@ -40,6 +40,8 @@
 
 - [Testikattavuusraportti 3.4.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-04-03%20at%2004-01-02%20Coverage%20report.png)
 
+- [Changelog](./BoringEmailGenerator/dokumentaatio/Changelog.md)
+
 
 ### Viikko 4
 Palautuksen deadline tiistai __18.4.__ klo 23:59
