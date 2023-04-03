@@ -3,7 +3,6 @@
 ## Tehtävät ja harjoitustyö
 
 ### Viikko 1
-Palautuksen deadline tiistai __21.3.__ klo 23:59
 #### Tehtävät
 - [gitlog.txt](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
@@ -13,7 +12,6 @@ Palautuksen deadline tiistai __21.3.__ klo 23:59
 
 
 ### Viikko 2
-Palautuksen deadline tiistai __28.3.__ klo 23:59
 #### Tehtävät
 - [maksukortti](https://github.com/SaijaGit/ot-harjoitustyo/tree/main/laskarit/viikko2/maksukortti)
 
@@ -28,7 +26,6 @@ Palautuksen deadline tiistai __28.3.__ klo 23:59
 
 
 ### Viikko 3
-Palautuksen deadline tiistai __4.4.__ klo 23:59
 #### Tehtävät
 - [Monopoli](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/monopoli.md)
 
@@ -39,12 +36,15 @@ Palautuksen deadline tiistai __4.4.__ klo 23:59
 - [Laajempi sekvenssikaavio](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko3/laajempi_sekvenssikaavio.md)
 
 #### Harjoitustyö
+- [Boring Email Generator](https://github.com/SaijaGit/ot-harjoitustyo/tree/main/BoringEmailGenerator)
 
+- [Testikattavuusraportti 3.4.2023](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-04-03%20at%2004-01-02%20Coverage%20report.png)
 
 
 ### Viikko 4
 Palautuksen deadline tiistai __18.4.__ klo 23:59
 #### Harjoitustyö
+
 
 
 
@@ -64,11 +64,3 @@ Palautuksen deadline tiistai __2.5.__ klo 23:59
 Palautuksen deadline sunnuntai __14.5.__ klo 23:59
 #### Loppupalautus
 
-
-
-_Aikataulu haettu sivulta: (https://ohjelmistotekniikka-hy.github.io/harjoitustyo)_
-
-
-
-### Kurssimateriaali ja tehtävät:
-(https://ohjelmistotekniikka-hy.github.io/materiaali)
