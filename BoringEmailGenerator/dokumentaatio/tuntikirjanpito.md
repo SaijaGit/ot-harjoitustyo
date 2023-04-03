@@ -7,3 +7,5 @@
 | 1.4. | 4    | Lisättiin viestipohjien haku tietokannasta ja esimerkkitietokannan luonti. Muokattiin käyttöliittymää hakemaan tietoa tietokannasta. |
 | 2.4. | 1    | Muokattiin käyttöliittymää. |
 | 3.4. | 4    | Muokattiin tietokantaa käsittelevää tiedostoa db_messages.py ja lisättiin sille testit. |
+|  | 1    | Siirrettiin tietokannan tiedostonimet dotenv-tiedostoon, lisättiin invoke-tehtävät ja Changelog |
+| yht | 18    |  |
