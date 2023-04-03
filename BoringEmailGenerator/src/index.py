@@ -1,15 +1,16 @@
 from tkinter import Tk
 from ui.ui_mainwindow import UI
-from repositories.message_db import MessageDB
+from repositories.db_messages import MessageDB
 
 
 def main():
 
-    database = MessageDB()
+    db_file = 'messages.db'
+    database = MessageDB(db_file)
 
     window = Tk()
     window.title("Boring Email Generator")
-    window.geometry('800x800')
+    window.geometry('800x600')
 
     ui = UI(window, database)
     ui.start()
