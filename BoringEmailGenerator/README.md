@@ -7,6 +7,6 @@ Monet ihmiset joutuvat kirjoittamaan työssään tylsiä rutiiniviestejä, joiss
 Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viestitekstit sovellukseen helposti löydettäviksi viestipohjiksi, ja koota ja kopioida niistä uusia viestejä sähköpostiohjelmaan liitettäväksi.
 
 ## Dokumentaatio
-- [Vaatimusmäärittely](./BoringEmailGenerator/dokumentaatio/vaatimusmaarittely.md)
-- [Työaikakirjanpito](./BoringEmailGenerator/dokumentaatio/tuntikirjanpito.md)
-- [Changelog](./BoringEmailGenerator/dokumentaatio/Changelog.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+- [Changelog](./dokumentaatio/Changelog.md)
