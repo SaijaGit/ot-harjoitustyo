@@ -1,6 +1,6 @@
 # Testausdokumentti
 Tässä vaiheessa ohjelma sisältää pääasiassa tietokantaan ja käyttöliittymään liittyvää toiminnallisuutta.
-Ohjelmaa on testattu sekä automatisoidusti unittestilla, ja käyttöliittymää on testattu manuaalisesti.
+Ohjelmaa on testattu automatisoidusti unittestilla, ja käyttöliittymää on testattu manuaalisesti.
 
 ## Yksikkö- ja integraatiotestaus
 
@@ -12,5 +12,5 @@ Tämänhetkistä luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/o
 
 Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 48%, mutta varsinaisesti testatun MessageDB-luokan osalta 97%.
 
-![](./kuvat/Screenshot_2023-04-03_at_04-01-02_Coverage_report.png)
+![](./kuvat/Screenshot_%202023-04-03_at_04-01-02_Coverage%20report.png)
 
