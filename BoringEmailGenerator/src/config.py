@@ -9,5 +9,5 @@ except FileNotFoundError:
     pass
 
 # jos os.getenv("FOO") palauttaa arvon None, FOO saa arvokseen "default bar"
-DATABASE=os.getenv("DATABASE") or "messages.db"
-TESTDATABASE=os.getenv("TESTDATABASE") or "test_messages.db"
+DATABASE = os.getenv("DATABASE") or "messages.db"
+TESTDATABASE = os.getenv("TESTDATABASE") or "test_messages.db"

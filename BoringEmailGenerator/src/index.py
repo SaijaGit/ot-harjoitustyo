@@ -1,19 +1,20 @@
 from tkinter import Tk
-from ui.ui_mainwindow import UI
+from ui.ui_mainwindow import MainWindow
 from repositories.db_messages import MessageDB
 from config import DATABASE
-
+#import sys
+#from ui.ui_managementwindow import ManagementWindow
 
 def main():
-
-    #db_file = 'messages.db'
+    #print(sys.path)
+    # db_file = 'messages.db'
     database = MessageDB(DATABASE)
 
     window = Tk()
     window.title("Boring Email Generator")
     window.geometry('800x600')
 
-    ui = UI(window, database)
+    ui = MainWindow(window, database)
     ui.start()
 
     database.get_groups()
@@ -21,8 +22,6 @@ def main():
     database.messages_by_group(1)
 
     window.mainloop()
-
-
 
 
 if __name__ == "__main__":
