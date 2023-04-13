@@ -110,3 +110,26 @@ class MessageDB:
                     'INSERT INTO messages (message_group, text) VALUES (?, ?)', (i, message))
 
         self.db_connection.commit()
+
+
+    def update_message_group_name(self, group_id, name):
+        if self.table_exists("message_groups"):
+            self.cursor.execute(
+                f"UPDATE message_groups SET name=? WHERE group_id=?", (name, group_id))
+            self.db_connection.commit()
+            print("update_message_group_name: group = ", group_id, ", name = ", name)
+
+            #self.get_group_name(group_id)
+
+
+    
+    def get_group_name(self, group_id):
+    
+        if self.table_exists("message_groups"):
+            self.cursor.execute(
+                f"SELECT name FROM message_groups WHERE group_id='{group_id}'")
+            group_name = self.cursor.fetchone()
+            print("get_group_name: group = ", group_id, ", name = ", group_name[0])
+            if group_name is not None:
+                return group_name[0]
+        return None

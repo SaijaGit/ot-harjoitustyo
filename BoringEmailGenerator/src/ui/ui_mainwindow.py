@@ -21,6 +21,8 @@ class MainWindow:
         self.group_names = self._database.get_groups()
         self.message_texts = self._database.all_messages_grouped()
 
+        self.comboboxes = []
+
 
     def start(self):
 
@@ -33,7 +35,7 @@ class MainWindow:
 
         self._draw_header1()
 
-        self._draw_comboboxes()
+        self.draw_comboboxes()
 
         self._draw_modify_content_buttons()
 
@@ -50,11 +52,10 @@ class MainWindow:
                              background=bg_colour)
         header1_label.grid(row=0, column=0, columnspan=4, pady=15)
 
-    def _draw_comboboxes(self):
+    def draw_comboboxes(self):
 
         for combobox_column in range(4):
             self._root.grid_columnconfigure(combobox_column, weight=1)
-            comboboxes = []
 
         for i in range(8):
             combobox_style = ttk.Style()
@@ -74,7 +75,7 @@ class MainWindow:
             column = i % 4
 
             combobox.grid(row=row, column=column, padx=10, pady=5, sticky="ew")
-            comboboxes.append(combobox)
+            self.comboboxes.append(combobox)
 
     def _draw_modify_content_buttons(self):
 
@@ -141,5 +142,10 @@ class MainWindow:
 
 
     def _handle_management_window_button_click(self):
-        management_window = ManagementWindow(self._root, self._database)
+        management_window = ManagementWindow(self._root, self._database,  self.update_combobox_groups)
         management_window.start()
+
+    def update_combobox_groups(self):
+        self.group_names = self._database.get_groups()
+        for i in range(8):
+            self.comboboxes[i].set(self.group_names[i])
