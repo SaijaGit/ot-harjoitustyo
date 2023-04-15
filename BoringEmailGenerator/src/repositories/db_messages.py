@@ -29,9 +29,9 @@ class MessageDB:
             f"SELECT name FROM sqlite_master WHERE type='table' AND name='{tablename}'")
 
         name = self.cursor.fetchone()
-        print("Found table: name = ", name)
+        # print("Found table: name = ", name)
         if name != None:
-            print("Table exists: ", tablename)
+            # print("Table exists: ", tablename)
             return True
 
         print("Table doesn't exist: ", tablename)
@@ -114,6 +114,15 @@ class MessageDB:
             print("update_message_group_name: group = ", group_id, ", name = ", name)
 
             #self.get_group_name(group_id)
+
+
+    def update_message_text(self, id, text):
+        print("update_message_text: id = ", id, ", text = ", text)
+        if self.table_exists("messages"):
+            self.cursor.execute(
+                f"UPDATE messages SET text=? WHERE id=?", (text, id))
+            self.db_connection.commit()
+            print("update_message_text: id = ", id, ", text = ", text)
 
 
     

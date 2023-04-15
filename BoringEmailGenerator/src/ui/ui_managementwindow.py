@@ -1,4 +1,4 @@
-from tkinter import Tk, ttk, Toplevel, StringVar, constants, scrolledtext, Canvas, LEFT, BOTH, RIGHT, Y, VERTICAL
+from tkinter import ttk, Toplevel, StringVar, constants, scrolledtext, Canvas, LEFT, BOTH, RIGHT, Y, VERTICAL
 
 
 bg_colour = "#bbe1fa"
@@ -17,12 +17,13 @@ class ManagementWindow(Toplevel):
 
     def start(self):
 
+        self.group_message_frames = []
         self.group_name_variables = []
         self.group_name_entries = []
         self.group_name_headers = []
         self.group_name_buttons = []
+        self.modify_message_entries = []
         self.new_message_buttons = []
-        self.group_message_frames = []
         self.create_message_entries = {}
 
         self.minsize(820, 0)
@@ -142,10 +143,10 @@ class ManagementWindow(Toplevel):
     def _draw_message_controls(self, frame_id):
         message_count = len(self.messages[frame_id])
         for i in range(message_count):
-            self.draw_message_text_area(frame_id, i, self.messages[frame_id][i].text)
+            text_area = self.draw_message_text_area(frame_id, i, self.messages[frame_id][i].text)
             self._draw_group_placeholder_label(frame_id, i)
             self._draw_delete_message_button(frame_id, i)
-            self._draw_save_message_button(frame_id, i)
+            self._draw_save_message_button(frame_id, i, text_area)
 
     def draw_message_text_area(self, frame_id, message_id, message_text):
         message_entry = scrolledtext.ScrolledText(
@@ -175,7 +176,7 @@ class ManagementWindow(Toplevel):
                                    command=lambda:self.handle_delete_message_button(frame_id, message_id))
         delete_message_button.grid(row=message_id*2+1, column=2, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
     
-    def _draw_save_message_button(self, frame_id, message_id):
+    def _draw_save_message_button(self, frame_id, message_id, text_area):
         save_message_button_style = ttk.Style()
         save_message_button_style.theme_use('default')
         save_message_button_style.configure('Save.TButton', padding=2, relief="flat", font=(
@@ -183,7 +184,7 @@ class ManagementWindow(Toplevel):
         save_message_button_style.map('Save.TButton', background=[('active', '#89e639'), (
             'disabled', '#8c8c8c')], foreground=[('pressed', '#04170f'), ('active', 'black')])
         save_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Save", style='Save.TButton',
-                                   command=lambda:self.handle_save_message_button(frame_id, message_id))
+                                   command=lambda:self.handle_save_message_button(frame_id, message_id, text_area))
         save_message_button.grid(row=message_id*2+1, column=3, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
 
 
@@ -208,7 +209,7 @@ class ManagementWindow(Toplevel):
         create_message_button_style.map('Group.TButton', background=[('active', '#ff66ff'), (
             'disabled', '#8c66ff')], foreground=[('pressed', '#660066'), ('active', 'black')])
         create_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Create", style='Group.TButton',
-                                   command=lambda:self.handle_save_message_button(frame_id))
+                                   command=lambda:self.handle_create_message_button(frame_id))
         create_message_button.grid(row=message_id*2+1, column=3, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
         return create_message_button
     
@@ -222,17 +223,9 @@ class ManagementWindow(Toplevel):
         self.group_name_variables[button_id].set(f"Group #{button_id+1}: {entry_value}")
         self.update_combobox_groups_func()
 
-    def handle_new_message_button(self, button_id):
-        print("handle_new_message_button: button_id = ", button_id)
-        place = len(self.messages[button_id])
-        text = "Type your new message template here!"
-        new_text_entry = self.draw_message_text_area(button_id, place, text)
-        self._draw_group_placeholder_label(button_id, place)
-        self._draw_cancel_message_button(button_id, place)
-        self._draw_create_message_button(button_id, place)
-        self.create_message_entries[button_id] = new_text_entry
-        #self.messages[button_id].append(text)
-        #self.draw_message_text_area(button_id, len(self.messages[button_id]), "Type your new message template here!")
+
+
+# DELETE OR MODIFY EXISTING MESSAGE TEMPLATES:
 
     def handle_delete_message_button(self, frame_id, button_id):
         print("handle_delete_message_button: frame_id = ", frame_id, ", button_id = ", button_id)
@@ -246,6 +239,34 @@ class ManagementWindow(Toplevel):
         self._draw_message_controls(frame_id)
         self.update_combobox_contents_func()
 
+    def handle_save_message_button(self, frame_id, message_id, text_area):
+        text = text_area.get('1.0', 'end-1c')
+        group = frame_id
+        print("handle_save_message_button: group = ", group, ", text = ", text)
+        self._message_handler.update_message(self.messages[frame_id][message_id], text)
+        self.messages = self._message_handler.all_messages_grouped()
+        
+        self.group_message_frames[frame_id].destroy()
+        self.group_message_frames[frame_id] = self._draw_group_frame(frame_id)
+
+        self._draw_message_controls(frame_id)
+        self.update_combobox_contents_func()
+
+
+
+# CREATE A NEW MESSAGE TEMPLATE: 
+
+    def handle_new_message_button(self, button_id):
+        print("handle_new_message_button: button_id = ", button_id)
+        place = len(self.messages[button_id])
+        text = "Type your new message template here!"
+        new_text_entry = self.draw_message_text_area(button_id, place, text)
+        self._draw_group_placeholder_label(button_id, place)
+        self._draw_cancel_message_button(button_id, place)
+        self._draw_create_message_button(button_id, place)
+        self.create_message_entries[button_id] = new_text_entry
+        #self.messages[button_id].append(text)
+        #self.draw_message_text_area(button_id, len(self.messages[button_id]), "Type your new message template here!")
 
     def handle_cancel_message_button(self, frame_id):
         print("handle_cancel_message_button: button_id = ", frame_id)
@@ -254,13 +275,10 @@ class ManagementWindow(Toplevel):
         self._draw_message_controls(frame_id)
         self.create_message_entries[frame_id]=None
 
-
-        
-
-    def handle_save_message_button(self, frame_id):
+    def handle_create_message_button(self, frame_id):
         text = self.create_message_entries[frame_id].get('1.0', 'end-1c')
         group = frame_id
-        print("handle_save_message_button: group = ", group, ", text = ", text)
+        print("handle_create_message_button: group = ", group, ", text = ", text)
         self._message_handler.add_new_message(group, text)
         self.messages = self._message_handler.all_messages_grouped()
         
