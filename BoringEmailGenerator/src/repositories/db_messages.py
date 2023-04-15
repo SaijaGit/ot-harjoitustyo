@@ -6,17 +6,20 @@ class MessageDB:
     def __init__(self, db_file):
         self.db_connection = sqlite3.connect(db_file)
         self.cursor = self.db_connection.cursor()
+        self.message_id_vs_place = {}
         self.initialize_db()
+
 
     def initialize_db(self):
 
         if not self.table_exists("messages"):
             example_message_texts = get_example_message_texts()
-            self.create_messages(example_message_texts)
+            self.create_example_messages(example_message_texts)
 
         if not self.table_exists("message_groups"):
             example_group_names = get_example_group_names()
-            self.create_groups(example_group_names)
+            self.create_example_groups(example_group_names)
+
 
         # self.cursor.close()
 
@@ -42,12 +45,7 @@ class MessageDB:
         if self.table_exists("message_groups"):
             self.cursor.execute('SELECT name FROM message_groups')
             group_names = self.cursor.fetchall()
-            group_table = []
-            print(group_names)
-            for n in group_names:
-                group_table.append(n[0])
-            print(group_table)
-            return group_table
+            return group_names
 
     def all_messages(self):
         if self.table_exists("messages"):
@@ -61,32 +59,14 @@ class MessageDB:
             return texts_table
 
 
-    def all_messages_grouped(self):
-        if self.table_exists("messages"):
-
-            texts_table = []
-            for i in range(1, 9):
-                texts_table.append(self.messages_by_group(i))
-
-            print('all_messages_grouped: ', texts_table)
-            return texts_table
-
-
-
-
-    def messages_by_group(self, group_id):
+    def read_messages_from_group(self, group_id):
         if self.table_exists("messages"):
             self.cursor.execute(
-                f"SELECT text FROM messages WHERE message_group='{group_id}'")
-            texts = self.cursor.fetchall()
-            texts_table = []
-            print(texts)
-            for t in texts:
-                texts_table.append(t[0])
-            print(texts_table)
-            return texts_table
+                f"SELECT text, id FROM messages WHERE message_group='{group_id}'")
+            messages = self.cursor.fetchall()
+            return messages
 
-    def create_groups(self, example_group_names):
+    def create_example_groups(self, example_group_names):
 
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS message_groups (id INTEGER PRIMARY KEY AUTOINCREMENT, group_id INTEGER UNIQUE, name TEXT)''')
@@ -97,7 +77,7 @@ class MessageDB:
 
         self.db_connection.commit()
 
-    def create_messages(self, example_message_texts):
+    def create_example_messages(self, example_message_texts):
 
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, message_group INTEGER, text TEXT)''')
@@ -110,6 +90,20 @@ class MessageDB:
                     'INSERT INTO messages (message_group, text) VALUES (?, ?)', (i, message))
 
         self.db_connection.commit()
+
+
+    def insert_new_message(self, group_id, message_text):
+
+        self.cursor.execute(
+            '''CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, message_group INTEGER, text TEXT)''')
+
+        self.cursor.execute(
+            'INSERT INTO messages (message_group, text) VALUES (?, ?)', (group_id, message_text))
+
+        self.db_connection.commit()
+
+
+
 
 
     def update_message_group_name(self, group_id, name):
@@ -133,3 +127,13 @@ class MessageDB:
             if group_name is not None:
                 return group_name[0]
         return None
+    
+
+    def delete_message_by_id(self, id):
+    
+        if self.table_exists("messages"):
+            self.cursor.execute(
+                f"DELETE FROM messages WHERE id='{id}'")
+            print("delete_message_by_id: id = ", id)
+            self.db_connection.commit()
+

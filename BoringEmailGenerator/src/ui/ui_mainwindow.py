@@ -12,14 +12,16 @@ bg_colour = "#bbe1fa"
 
 class MainWindow:
 
-    def __init__(self, root, database):
+    def __init__(self, root, message_handler):
         self._root = root
         self._message_entry = None
         self._root.configure(bg=bg_colour)
 
-        self._database = database
-        self.group_names = self._database.get_groups()
-        self.message_texts = self._database.all_messages_grouped()
+        self._message_handler = message_handler
+        self.group_names = self._message_handler.group_name_list()
+        self.message_texts = self._message_handler.all_message_texts_grouped()
+
+        self._management_window = None
 
         self.comboboxes = []
 
@@ -83,7 +85,7 @@ class MainWindow:
         manage_button_style.theme_use('default')
         manage_button_style.configure('Manage.TButton', padding=6, relief="flat", font=(
             'Georgia', 12, 'bold'), background='#6666cc', foreground='black')
-        manage_button_style.map('Manage.TButton', background=[('active', '#333399'), (
+        manage_button_style.map('Manage.TButton', background=[('active', '#bc5bf0'), (
             'disabled', '#8c8c8c')], foreground=[('pressed', '#000033'), ('active', 'black')])
         manage_button = ttk.Button(master=self._root, text="Modify templates",
                                 style='Manage.TButton', command=self._handle_management_window_button_click)
@@ -99,29 +101,30 @@ class MainWindow:
         self._message_entry.grid(row=4, column=0, columnspan=4, sticky=(
             constants.E, constants.W), padx=15, pady=15)
 
+
     def _draw_text_area_buttons(self):
 
         delete_button_style = ttk.Style()
         delete_button_style.theme_use('default')
         delete_button_style.configure('Delete.TButton', padding=6, relief="flat", font=(
             'Georgia', 12, 'bold'), background='#cc2b5b', foreground='black')
-        delete_button_style.map('Delete.TButton', background=[('active', '#fa2039'), (
-            'disabled', '#ba2d3d')], foreground=[('pressed', '#361317'), ('active', 'black')])
-        delete_button = ttk.Button(master=self._root, text="Delete", style='Delete.TButton',
+        delete_button_style.map('Delete.TButton', background=[('active', '#de4831'), (
+            'disabled', '#8c8c8c')], foreground=[('pressed', '#361317'), ('active', 'black')])
+        delete_button = ttk.Button(master=self._root, text="Empty", style='Delete.TButton',
                                    command=lambda: self._message_entry.delete('1.0', 'end'))  # self._handle_delete_button_click)
 
         copy_button_style = ttk.Style()
         copy_button_style.theme_use('default')
         copy_button_style.configure('Copy.TButton', padding=6, relief="flat", font=(
             'Georgia', 12, 'bold'), background='#2bcc3b', foreground='black')
-        copy_button_style.map('Copy.TButton', background=[('active', '#3ed643'), (
-            'disabled', '#30ab34')], foreground=[('pressed', '#04170f'), ('active', 'black')])
+        copy_button_style.map('Copy.TButton', background=[('active', '#89e639'), (
+            'disabled', '#8c8c8c')], foreground=[('pressed', '#04170f'), ('active', 'black')])
         copy_button = ttk.Button(master=self._root, text="Copy",
                                  style='Copy.TButton', command=self._handle_copy_button_click)
 
         delete_button.grid(row=5, column=2, columnspan=1,
-                           padx=5, pady=10, sticky=(constants.E, constants.W))
-        copy_button.grid(row=5, column=3, columnspan=1,  padx=5,
+                           padx=10, pady=10, sticky=(constants.W, constants.E))
+        copy_button.grid(row=5, column=3, columnspan=1,  padx=10,
                          pady=10, sticky=(constants.E, constants.W))
 
     def _handle_comboboxes(self, event):
@@ -142,10 +145,23 @@ class MainWindow:
 
 
     def _handle_management_window_button_click(self):
-        management_window = ManagementWindow(self._root, self._database,  self.update_combobox_groups)
-        management_window.start()
+
+        if self._management_window is None or not self._management_window.winfo_exists():
+            self._management_window = ManagementWindow(self._root, self._message_handler, self.update_combobox_groups, self.update_combobox_contents)
+            self._management_window.start()
+        else:
+            self._management_window.lift()
+
+
+
 
     def update_combobox_groups(self):
-        self.group_names = self._database.get_groups()
+        self.group_names = self._message_handler.group_name_list()
         for i in range(8):
+            self.comboboxes[i].set(self.group_names[i])
+
+    def update_combobox_contents(self):
+        self.message_texts = self._message_handler.all_message_texts_grouped()
+        for i in range(8):
+            self.comboboxes[i]['values']=self.message_texts[i]
             self.comboboxes[i].set(self.group_names[i])
