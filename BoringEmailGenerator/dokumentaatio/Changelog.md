@@ -6,3 +6,9 @@
 - Lisätty MessageDB-luokka hoitamaan viestipohjien tallentamista tietokantaan ja niiden noutamista tietokannasta
 - Lisätty esimerkkiviestipohjien luonti tietokantaan ohjelman käytön aloittamista ja testausta varten (db_example_messages.py)
 - Testattu, että MessageDB-luokka alustaa tietokannan ja luo sinne tarvittaessa esimerkkiviestipohjat, ja että viestiryhmien nimien ja viestien lisäys, poisto ja haku tietokannasta toimii oikein.
+
+## Viikko 4
+- Lisätty käyttöliittymään toinen ikkuna ManagemetWindow, jossa voi vaihtaa viestiryhmien nimet sekä lisätä, muokata ja poistaa viestipohjia.
+- Luotu uusi luokka MessageHandler toimimaan käyttöliittymän ja tietokantaa hoitavan MessageDB-luokan väliin. Sen avulla saatiin siistittyä käyttöliittymän ja MessageDB:n koodia, sillä se hoitaa tiedon muuntamisen molempien luokkien tarvitsemaan muotoon.
+- Lisättiin Pylint ja korjattiin sen ilmoittamat virheet.
+- Lisättiin testit MessageHandler-luokalle.
