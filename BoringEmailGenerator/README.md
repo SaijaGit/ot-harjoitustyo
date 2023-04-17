@@ -11,3 +11,4 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Testikattavuusraportti 17.4.2023](./dokumentaatio/testaus.md)
 - [Changelog](./dokumentaatio/Changelog.md)
+- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
