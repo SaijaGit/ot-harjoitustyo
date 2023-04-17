@@ -1,8 +1,7 @@
-# , clipboard_append, clipboard_clear
-#import ui_managementwindow
+
 
 from tkinter import Tk, ttk, constants, scrolledtext
-#from ui_managementwindow import ManagementWindow
+# from ui_managementwindow import ManagementWindow
 from repositories.db_messages import MessageDB
 from .ui_managementwindow import ManagementWindow
 
@@ -24,7 +23,6 @@ class MainWindow:
         self._management_window = None
 
         self.comboboxes = []
-
 
     def start(self):
 
@@ -88,19 +86,16 @@ class MainWindow:
         manage_button_style.map('Manage.TButton', background=[('active', '#bc5bf0'), (
             'disabled', '#8c8c8c')], foreground=[('pressed', '#000033'), ('active', 'black')])
         manage_button = ttk.Button(master=self._root, text="Modify templates",
-                                style='Manage.TButton', command=self._handle_management_window_button_click)
+                                   style='Manage.TButton', command=self._handle_management_window_button_click)
 
         manage_button.grid(row=3, column=3, columnspan=1,
-                        padx=5, pady=10, sticky=(constants.E, constants.W))
-
-
+                           padx=5, pady=10, sticky=(constants.E, constants.W))
 
     def _draw_textarea(self):
         self._message_entry = scrolledtext.ScrolledText(
             master=self._root, height=80, wrap="word")
         self._message_entry.grid(row=4, column=0, columnspan=4, sticky=(
             constants.E, constants.W), padx=15, pady=15)
-
 
     def _draw_text_area_buttons(self):
 
@@ -143,17 +138,14 @@ class MainWindow:
         self._root.clipboard_clear()
         self._root.clipboard_append(entry_value)
 
-
     def _handle_management_window_button_click(self):
 
         if self._management_window is None or not self._management_window.winfo_exists():
-            self._management_window = ManagementWindow(self._root, self._message_handler, self.update_combobox_groups, self.update_combobox_contents)
+            self._management_window = ManagementWindow(
+                self._root, self._message_handler, self.update_combobox_groups, self.update_combobox_contents)
             self._management_window.start()
         else:
             self._management_window.lift()
-
-
-
 
     def update_combobox_groups(self):
         self.group_names = self._message_handler.group_name_list()
@@ -163,5 +155,5 @@ class MainWindow:
     def update_combobox_contents(self):
         self.message_texts = self._message_handler.all_message_texts_grouped()
         for i in range(8):
-            self.comboboxes[i]['values']=self.message_texts[i]
+            self.comboboxes[i]['values'] = self.message_texts[i]
             self.comboboxes[i].set(self.group_names[i])

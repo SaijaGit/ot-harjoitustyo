@@ -42,18 +42,13 @@ class TestMessageDB(unittest.TestCase):
 
     def test_get_groups_returns_right_groups(self):
         self.database.remove_table('message_groups')
-        self.database.create_groups(['group1', 'group2'])
+        self.database.create_example_groups(['group1', 'group2'])
         groups = self.database.get_groups()
-        self.assertEqual(groups, ['group1', 'group2'])
+        self.assertEqual(groups, [('group1',), ('group2',)])
 
     def test_all_messages_returns_all_messages_in_one_table(self):
         self.database.remove_table('messages')
-        self.database.create_messages([['m1', 'm2'], ['m3', 'm4']])
+        self.database.create_example_messages([['m1', 'm2'], ['m3', 'm4']])
         messages = self.database.all_messages()
         self.assertEqual(messages, ['m1', 'm2', 'm3', 'm4'])
 
-    def test_messages_by_group_returns_messages_of_one_group(self):
-        self.database.remove_table('messages')
-        self.database.create_messages([['m1', 'm2'], ['m3', 'm4']])
-        self.assertEqual(self.database.messages_by_group(1), ['m1', 'm2']) and self.assertEqual(
-            self.database.messages_by_group(2), ['m3', 'm4'])

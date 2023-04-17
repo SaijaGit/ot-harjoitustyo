@@ -5,11 +5,11 @@ from config import DATABASE
 from message_handler import MessageHandler
 
 
-#import sys
-#from ui.ui_managementwindow import ManagementWindow
+# import sys
+# from ui.ui_managementwindow import ManagementWindow
 
 def main():
-    #print(sys.path)
+    # print(sys.path)
     # db_file = 'messages.db'
     database = MessageDB(DATABASE)
     message_handler = MessageHandler(database)
@@ -18,8 +18,8 @@ def main():
     window.title("Boring Email Generator")
     window.geometry('800x600')
 
-    ui = MainWindow(window, message_handler)
-    ui.start()
+    ui_main_window = MainWindow(window, message_handler)
+    ui_main_window.start()
 
     window.mainloop()
 
