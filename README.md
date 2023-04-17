@@ -36,7 +36,7 @@
 ### Viikko 4
 #### Harjoitustyö
 - [Testikattavuusraportti 17.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
-
+- [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
 
 
 
