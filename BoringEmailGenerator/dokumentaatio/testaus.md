@@ -1,16 +1,20 @@
 # Testausdokumentti
-Tässä vaiheessa ohjelma sisältää pääasiassa tietokantaan ja käyttöliittymään liittyvää toiminnallisuutta.
-Ohjelmaa on testattu automatisoidusti unittestilla, ja käyttöliittymää on testattu manuaalisesti.
+Tässä vaiheessa ohjelma sisältää pääasiassa viestien käsittelyyn, tietokantaan ja käyttöliittymään liittyvää toiminnallisuutta.
+Ohjelmaa on testattu automatisoidusti unittestilla, ja käyttöliittymää on testattu manuaalisesti sekä Windowsilla että Cubbli Linuxilla.
 
 ## Yksikkö- ja integraatiotestaus
 
 ### Sovelluslogiikka ja Repositorio-luokat
-Tietokantaa käsittelevä luokka `MessageDB` sisältää jonkin verran tietokannan olemassa olon varmistamiseen ja haetun tiedon käsittelyyn liittyvää sovelluslogiikkaa. Myöhemmässä vaiheessa tämä toiminnallisuus tullaan todennäköisesti jakamaan osiin niin, että tiedon käsittely ja tietokannalle lähetettävät viestit ovat omissa luokissaan.
-Tämänhetkistä luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_db_messages.py)-testiluokalla. 
+`MessageHandler`-luokka toimii linkkinä tietokantaluokka MessageDB:n ja käyttöliittymän välillä. Se käsittelee tietokannasta tulevan datan käyttöliittymän tarvitsemaan muotoon, ja välittää käyttöliittymän pyynnöt MessageDB:lle.
+MessageHandler-luokkaa testataan [TestMessageHandler](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_message_handler.py)-testiluokalla.
+
+
+Tietokantaa käsittelevä luokka `MessageDB` hoitaa viestinnän tietokannan kanssa ja varmistaa, että ohjelman käynnistyessä tarjolla on käyttökelpoinen tietokanta. 
+MessageDB-luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_db_messages.py)-testiluokalla. 
 
 ### Testauskattavuus
 
-Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 48%, mutta varsinaisesti testatun MessageDB-luokan osalta 97%.
+Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 89%. Automaattisissa testeissä ei ole mukana käyttöliittymä eikä index.py.
 
-![](./kuvat/Screenshot_%202023-04-03_at_04-01-02_Coverage%20report.png)
+![](./kuvat/Screenshot%202023-04-17%20at%2004-54-02%20Coverage%20report.png)
 
