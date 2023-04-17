@@ -34,8 +34,8 @@
 
 
 ### Viikko 4
-Palautuksen deadline tiistai __18.4.__ klo 23:59
 #### Harjoitustyö
+- [Testikattavuusraportti 17.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
 
 
 
