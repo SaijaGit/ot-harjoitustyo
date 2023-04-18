@@ -13,5 +13,5 @@
 | 15.4. | 3    | Lisättiin viestipohjien poisto sekä MessageHandler-luokka tietokannan ja käyttöliittymän väliin. |
 | 16.4. | 3    | Lisättiin viestipohjien lisäys ja muokkaus. |
 | 17.4. | 4    | Korjattiin Pylint-virheitä ja lisättiin testit ManagementWindow-luokalle. |
-| 19.4. | 1    | Tehtiin luokkakaavio ja arkkitehtuurikuvaus |
+| 18.4. | 1    | luokkakaavio ja arkkitehtuurikuvaus |
 | yht | 39    |  |
