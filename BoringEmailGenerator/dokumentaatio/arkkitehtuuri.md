@@ -81,3 +81,18 @@ src/tests
       
       
 ```
+
+## Käyttöliittymä
+
+Kyttöliittymässä on kaksi luokkaa, ensimmäisenä käynnistyvä pääikkuna MainWindow ja tallennettujen viestipohjien muokkaamiseen käytettävä ManagementWindow. 
+
+Kun ohjelma käynnistetään, ensimmäisenä käynnistyy MainWindow. Se sisältää tallennetut viestipohjat aiheen mukaisesti ryhmiteltyinä comboboxeihin, sekä tekstialueen, johon valitut viestipohjat tulostuvat ja jossa niitä voi muokata. Se sisältää myös napit viestiluonnoksen poistamiseen ja kopioimiseen, sekä napin jolla voi käynnistää ManagementWindow-ikkunan. MainWindow-ikkunan kokoa voi muuttaa vapaasti, ja tekstialueen koko määräytyy ikkunan koon mukaan.
+
+ManagementWindow aukeaa omaan ikkunaansa MainWidown lisäksi. Se näyttää kaikki tallennetut viestipohjat aiheittain ryhmiteltyinä. Se tarjoaa muokkauskentät ja tallennusnapit viestiryhmien nimille, sekä kaikille viesteille. Ikkunassa voi myös poistaa viestejä ja lisätä kokonaan uusia viestejä. ManagementWindow-ikkunan kokoa voi muuttaa, mutta sisältö ei skaalaudu leveyssuunnassa, eikä ikkunaa voi kavetaa sisältöä pienemmäksi. Korkeussuunnassa ikkunassa on vierityspalkki, joten viestejä voi lisätä haluamansa määrän ilman että tila loppuu kesken.
+
+MainWindow-ikkunan sisältö päivittyy reaaliaikaisesti, kun viestien muutoksia tai uusia viestejä tallennetaan ManagementWindow-ikkunassa. Molempia ikkunoita voi siis pitää auki ohjelman käytön aikana. Jos MainWindow-ikkunassa painetaan ManagementWindow-ikkunan avausnappia ikkunan ollessa jo avoinna, ohjelma ei luo toista ikkunaa, vaan siirtää avoinna olevan aktiiviseksi.
+
+## Sovelluslogiikka
+Tällä hetkellä ohjelman sovelluslogiikka sisältää lähinnä tiedonkäsittelyyn ja tallentamiseen, sekä tietokannan olemassa olon varmistamiseen liittyvää toiminnallisuutta. 
+
+Tarkoituksena on kehittää ohjelmaa siten, että sovelluslogiikkaan lisätään viestin sisältöön liittyviä tarkastuksia, sekä mahdollisuus kääntää viesti toiselle kielelle gooletrans-kirjaston avulla.
