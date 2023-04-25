@@ -43,6 +43,7 @@
 #### Harjoitustyö
 - [Testikattavuusraportti 25.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
 - [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
+- [Release viikko5](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/viikko5)
 
 
 ### Viikko 6
