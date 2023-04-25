@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.8"
 python-dotenv = "^1.0.0"
 invoke = "*"
+googletrans = "4.0.0-rc1"
 
 
 [tool.poetry.group.dev.dependencies]
