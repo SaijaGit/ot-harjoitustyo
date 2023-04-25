@@ -16,7 +16,7 @@ def main():
 
     window = Tk()
     window.title("Boring Email Generator")
-    window.geometry('800x600')
+    window.geometry('800x700')
 
     ui_main_window = MainWindow(window, message_handler)
     ui_main_window.start()

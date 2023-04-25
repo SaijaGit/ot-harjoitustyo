@@ -98,5 +98,4 @@ def get_example_message_texts():
                               "I look forward to hearing back from you soon. \nKind regards, \n",
                               "\nSo long and thanks for all the fish!"]]
 
-
     return example_message_texts

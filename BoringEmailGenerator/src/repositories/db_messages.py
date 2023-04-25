@@ -108,7 +108,6 @@ class MessageDB:
             '''
         self.cursor.execute(query)
 
-
         group_id = 0
         for group in example_message_texts:
             group_id += 1

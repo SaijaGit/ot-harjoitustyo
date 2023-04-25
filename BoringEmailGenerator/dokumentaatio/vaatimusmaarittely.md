@@ -7,7 +7,7 @@ Sovelluksen tarkoitus on auttaa käyttäjää luomaan yksinkertaisia sähköpost
 Käyttäjä voi tallentaa usein kirjoittamansa viestit sovellukseen. Viestipohjat jaotellaan omiin ryhmiinsä, mikä helpottaa halutun tekstipätkän löytämistä. Valitut viestin osat näytetään tekstikentässä, jossa niitä voi tarvittaessa myös muokata. Kun viesti on valmis, käyttäjä voi kopioida sen liittääkseen sen sähköpostiohjelmaansa.
 
 
-## Perusversion tarjoama toiminnallisuus
+## Perusversion tarjoama toiminnallisuus (18.4. kaikki tehty)
 -	Sovelluksessa on valmiina viestiryhmät ja muutamia yleisiä viestipohjia.
 -	Viestipohjat on jaoteltu ryhmiin ja ne saa näkyviin kyseisen ryhmän napista klikkaamalla.  
 -	Viestipohjat aukeavat pudotusvalikoksi, josta ne voi valita klikkaamalla.
