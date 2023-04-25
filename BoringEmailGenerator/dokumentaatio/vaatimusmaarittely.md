@@ -28,6 +28,8 @@ Sovelluksessa on kaksi ikkunaa. Ensimmäisenä avautuu pääikkuna, jossa viesti
 Käyttöliittymäluonnokset on tehty Excelillä, ja kuvitukset ovat Excelin ikoneita.
 
 ## Jatkokehitysideat
+Sovellukseen on lisätty viestien käännösmahdollisuus googletrans-kirjaston avulla. (Tehty 25.4.)
+
 Sovellukseen voisi kehittää hakutoimintoja ja filttereitä haluttujen viestin löytämisen helpottamiseksi. Sopivia filttereitä voisivat olla esimerkiksi viestin kieli ja tyylilaji (muodollinen / tuttavallinen). Tätä varten ohjelmaan pitäisi lisätä viestikategoriat, jotka lisättäisiin viesteille luomisvaiheessa.
 
 Toinen hyödyllinen ominaisuus olisi mahdollisuus siirtää viestejä ryhmästä toiseen ja vaihtaa niiden järjestystä ryhmässä.
