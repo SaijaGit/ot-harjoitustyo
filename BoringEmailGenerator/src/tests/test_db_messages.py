@@ -51,4 +51,3 @@ class TestMessageDB(unittest.TestCase):
         self.database.create_example_messages([['m1', 'm2'], ['m3', 'm4']])
         messages = self.database.all_messages()
         self.assertEqual(messages, ['m1', 'm2', 'm3', 'm4'])
-

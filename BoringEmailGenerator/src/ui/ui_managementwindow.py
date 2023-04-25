@@ -1,13 +1,5 @@
-# I AM AWARE THAT THESE UI CLASSES ARE POORLY STRUCTURED. 
-# I'M GOING TO ORGANIZE THE CODE, REDUCE THE REPETITIVENESS 
-# AND MOVE THE STYLE DEFINITIONS TO ITS OWN FILE LATER 
-# WHEN I'M SURE THE UI DOESN'T NEED TO BE CHANGED ANYMORE.
-
-
 from tkinter import ttk, Toplevel, StringVar, constants, scrolledtext, Canvas, LEFT, BOTH, RIGHT, Y, VERTICAL
-
-
-bg_colour = "#bbe1fa"
+from .styles import configure_management_window_styles, bg_colour
 
 
 class ManagementWindow(Toplevel):
@@ -23,6 +15,8 @@ class ManagementWindow(Toplevel):
 
     def start(self):
 
+        configure_management_window_styles()
+
         self.group_message_frames = []
         self.group_name_variables = []
         self.group_name_entries = []
@@ -36,9 +30,8 @@ class ManagementWindow(Toplevel):
 
         self.canvas = Canvas(self, width=800, height=800)
         self.canvas.pack(side=LEFT, fill=BOTH, expand=True)
-        background_style = ttk.Style()
-        background_style.configure('My.TFrame', background=bg_colour)
-        self.main_frame = ttk.Frame(self.canvas, style='My.TFrame')
+
+        self.main_frame = ttk.Frame(self.canvas, style='Group.TFrame')
         self.canvas.create_window((0, 0), window=self.main_frame, anchor="nw")
 
         self.scrollbar = ttk.Scrollbar(
@@ -115,12 +108,6 @@ class ManagementWindow(Toplevel):
         self.group_name_entries.append(group_name_entry)
 
     def _draw_group_name_button(self, button_id):
-        group_name_button_style = ttk.Style()
-        group_name_button_style.theme_use('default')
-        group_name_button_style.configure('Group.TButton', padding=6, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#6666cc', foreground='black')
-        group_name_button_style.map('Group.TButton', background=[('active', '#bc5bf0'), (
-            'disabled', '#8c8c8c')], foreground=[('pressed', '#000033'), ('active', 'black')])
         group_name_button = ttk.Button(master=self.main_frame, text="Rename group", style='Group.TButton',
                                        command=lambda: self.handle_group_name_button(button_id))
         group_name_button.grid(row=2*button_id+2, column=2, columnspan=1,
@@ -128,12 +115,6 @@ class ManagementWindow(Toplevel):
         self.group_name_buttons.append(group_name_button)
 
     def _draw_new_message_button(self, button_id):
-        group_new_message_style = ttk.Style()
-        group_new_message_style.theme_use('default')
-        group_new_message_style.configure('New.TButton', padding=6, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#ab9e13', foreground='black')
-        group_new_message_style.map('New.TButton', background=[('active', '#e8c515'), (
-            'disabled', '#8c8c8c')], foreground=[('pressed', '#3b2e07'), ('active', 'black')])
         new_message__button = ttk.Button(master=self.main_frame, text="Add new template", style='New.TButton',
                                          command=lambda: self.handle_new_message_button(button_id))
         new_message__button.grid(row=2*button_id+2, column=3, columnspan=1,
@@ -141,9 +122,7 @@ class ManagementWindow(Toplevel):
         self.new_message_buttons.append(new_message__button)
 
     def _draw_group_frame(self, frame_id):
-        background_style = ttk.Style()
-        background_style.configure('My.TFrame', background=bg_colour)
-        group_frame = ttk.Frame(self.main_frame, style='My.TFrame')
+        group_frame = ttk.Frame(self.main_frame, style='Group.TFrame')
         group_frame.grid(row=frame_id*2+3, column=0,
                          columnspan=4, padx=5, pady=10, sticky="ne")
         group_frame.grid_columnconfigure((2, 3), weight=0)
@@ -171,66 +150,41 @@ class ManagementWindow(Toplevel):
         return message_entry
 
     def _draw_group_placeholder_label(self, frame_id, message_id):
-        background_style = ttk.Style()
-        background_style.configure('My.TFrame', background=bg_colour)
         placeholder_label = ttk.Label(
-            master=self.group_message_frames[frame_id], text="", style='My.TFrame')
+            master=self.group_message_frames[frame_id], text="", style='Group.TFrame')
         placeholder_label.grid(row=message_id*2+1, column=0, columnspan=2, sticky=(
             constants.E, constants.W), padx=2, pady=2)
 
     def _draw_delete_message_button(self, frame_id, message_id):
-        delete_message_button_style = ttk.Style()
-        delete_message_button_style.theme_use('default')
-        delete_message_button_style.configure('Delete.TButton', padding=2, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#cc2b5b', foreground='black')
-        delete_message_button_style.map('Delete.TButton', background=[('active', '#de4831'), (
-            'disabled', '#8c8c8c')], foreground=[('pressed', '#361317'), ('active', 'black')])
         delete_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Delete", style='Delete.TButton',
                                            command=lambda: self.handle_delete_message_button(frame_id, message_id))
         delete_message_button.grid(
             row=message_id*2+1, column=2, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _draw_save_message_button(self, frame_id, message_id, text_area):
-        save_message_button_style = ttk.Style()
-        save_message_button_style.theme_use('default')
-        save_message_button_style.configure('Save.TButton', padding=2, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#2bcc3b', foreground='black')
-        save_message_button_style.map('Save.TButton', background=[('active', '#89e639'), (
-            'disabled', '#8c8c8c')], foreground=[('pressed', '#04170f'), ('active', 'black')])
         save_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Save", style='Save.TButton',
                                          command=lambda: self.handle_save_message_button(frame_id, message_id, text_area))
         save_message_button.grid(row=message_id*2+1, column=3, columnspan=1,
                                  padx=5, pady=5, sticky=(constants.E, constants.W))
 
     def _draw_cancel_message_button(self, frame_id, message_id):
-        cancel_message_button_style = ttk.Style()
-        cancel_message_button_style.theme_use('default')
-        cancel_message_button_style.configure('Group.TButton', padding=2, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#d966ff', foreground='black')
-        cancel_message_button_style.map('Group.TButton', background=[('active', '#ff66ff'), (
-            'disabled', '#8c66ff')], foreground=[('pressed', '#660066'), ('active', 'black')])
-        cancel_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Cancel", style='Group.TButton',
+        cancel_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Cancel", style='Cancel.TButton',
                                            command=lambda: self.handle_cancel_message_button(frame_id))
         cancel_message_button.grid(
             row=message_id*2+1, column=2, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
         return cancel_message_button
 
     def _draw_create_message_button(self, frame_id, message_id):
-        create_message_button_style = ttk.Style()
-        create_message_button_style.theme_use('default')
-        create_message_button_style.configure('Group.TButton', padding=2, relief="flat", font=(
-            'Georgia', 12, 'bold'), background='#d966ff', foreground='black')
-        create_message_button_style.map('Group.TButton', background=[('active', '#ff66ff'), (
-            'disabled', '#8c66ff')], foreground=[('pressed', '#660066'), ('active', 'black')])
-        create_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Create", style='Group.TButton',
+        create_message_button = ttk.Button(master=self.group_message_frames[frame_id], text=f"Create", style='Create.TButton',
                                            command=lambda: self.handle_create_message_button(frame_id))
         create_message_button.grid(
             row=message_id*2+1, column=3, columnspan=1, padx=5, pady=5, sticky=(constants.E, constants.W))
         return create_message_button
-    
-    
-# BUTTONS: 
+
+
+# BUTTONS:
 # CHANGE GROUP NAME:
+
 
     def handle_group_name_button(self, button_id):
         print("handle_group_name_button: button_id = ", button_id)
@@ -243,6 +197,7 @@ class ManagementWindow(Toplevel):
 
 
 # DELETE OR MODIFY EXISTING MESSAGE TEMPLATES:
+
 
     def handle_delete_message_button(self, frame_id, button_id):
         print("handle_delete_message_button: frame_id = ",
@@ -275,6 +230,7 @@ class ManagementWindow(Toplevel):
 
 
 # CREATE A NEW MESSAGE TEMPLATE:
+
 
     def handle_new_message_button(self, button_id):
         print("handle_new_message_button: button_id = ", button_id)

@@ -16,16 +16,15 @@ class TestMessageHandler(unittest.TestCase):
 
     def test_group_name_list(self):
         group_table = self.message_handler.group_name_list()
-        expected = ['Greetings', 'Inquiries', 'Meetings', 
-                    'Sales', 'Holidays', 'Animals', 
+        expected = ['Greetings', 'Inquiries', 'Meetings',
+                    'Sales', 'Holidays', 'Animals',
                     'Miscellaneous', 'Signatures']
-        
+
         self.assertEqual(group_table, expected)
 
-    
     def test_all_message_texts_grouped(self):
         message_texts_grouped = self.message_handler.all_message_texts_grouped()
-        
+
         result = (
             len(message_texts_grouped),
             message_texts_grouped[0][0],
@@ -38,9 +37,8 @@ class TestMessageHandler(unittest.TestCase):
             message_texts_grouped[7][2]
         )
 
-
         expected = (
-            8, 
+            8,
             "\nHello [RECIPIENT], \nI hope you're having a fantastic day! ",
             "\nReferring to our recent telephone conversation,\n",
             "\nI'm writing to ask if you have any availability for a "
@@ -56,20 +54,19 @@ class TestMessageHandler(unittest.TestCase):
 
         self.assertEqual(result, expected)
 
-
     def test_rename_group(self):
         self.message_handler.rename_group(1, "Pulla")
         result = self.message_handler.group_name_list()[1]
         expected = "Pulla"
         self.assertEqual(result, expected)
 
-
     def test_delete_message(self):
         messages_before = self.message_handler.messages_by_group(2)
         amount_before = len(messages_before)
         message_1_before_id = messages_before[1].message_id
         message_1_before_text = messages_before[1].text
-        print("messages_before: ", messages_before, " amount_before: ", amount_before)
+        print("messages_before: ", messages_before,
+              " amount_before: ", amount_before)
         self.message_handler.delete_message(messages_before[0])
         messages_after = self.message_handler.messages_by_group(2)
         amount_after = len(messages_after)
@@ -92,7 +89,6 @@ class TestMessageHandler(unittest.TestCase):
 
         self.assertEqual(result, expected)
 
-
     def test_update_message(self):
         message_before = self.message_handler.messages_by_group(4)[1]
         self.message_handler.update_message(message_before, "Kakku")
@@ -104,12 +100,11 @@ class TestMessageHandler(unittest.TestCase):
         )
 
         expected = (
-            "Kakku", 
+            "Kakku",
             message_before.message_id
         )
 
         self.assertEqual(result, expected)
-
 
     def test_add_new_message(self):
         messages_before = self.message_handler.messages_by_group(5)
@@ -119,13 +114,13 @@ class TestMessageHandler(unittest.TestCase):
         amount_after = len(messages_after)
 
         result = (
-            amount_after, 
+            amount_after,
             messages_after[amount_after-1].text,
         )
 
         expected = (
-            amount_before + 1, 
-            "Hello World!", 
+            amount_before + 1,
+            "Hello World!",
         )
 
         self.assertEqual(result, expected)
