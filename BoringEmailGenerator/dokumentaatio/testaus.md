@@ -12,9 +12,11 @@ MessageHandler-luokkaa testataan [TestMessageHandler](https://github.com/SaijaGi
 Tietokantaa käsittelevä luokka `MessageDB` hoitaa viestinnän tietokannan kanssa ja varmistaa, että ohjelman käynnistyessä tarjolla on käyttökelpoinen tietokanta. 
 MessageDB-luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_db_messages.py)-testiluokalla. 
 
+Luokka `MessageTranslator` hoitaa viestin kääntämisen googletrans-kirjaston avulla. Sitä testataan [TestMessageTranslator](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_message_translator.py)-testiluokalla. Sen testaaminen kattavasti on hieman haastavaa, sillä luokan toiminta riippuu täysin googletrans-kirjaston tarjoamasta googlen verokssa toimvasta käännöspalvelusta, jonka ilmaisversio toimii aika epäluotettavasti.
+
 ### Testauskattavuus
 
 Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 89%. Automaattisissa testeissä ei ole mukana käyttöliittymä eikä index.py.
 
-![](./kuvat/Screenshot%202023-04-17%20at%2004-54-02%20Coverage%20report.png)
+![](./kuvat/Screenshot%202023-04-25%20at%2022-44-38%20Coverage%20report.png)
 
