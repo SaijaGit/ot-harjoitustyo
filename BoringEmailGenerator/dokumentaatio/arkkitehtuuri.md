@@ -93,6 +93,29 @@ ManagementWindow aukeaa omaan ikkunaansa MainWidown lisäksi. Se näyttää kaik
 MainWindow-ikkunan sisältö päivittyy reaaliaikaisesti, kun viestien muutoksia tai uusia viestejä tallennetaan ManagementWindow-ikkunassa. Molempia ikkunoita voi siis pitää auki ohjelman käytön aikana. Jos MainWindow-ikkunassa painetaan ManagementWindow-ikkunan avausnappia ikkunan ollessa jo avoinna, ohjelma ei luo toista ikkunaa, vaan siirtää avoinna olevan aktiiviseksi.
 
 ## Sovelluslogiikka
-Tällä hetkellä ohjelman sovelluslogiikka sisältää lähinnä tiedonkäsittelyyn ja tallentamiseen, sekä tietokannan olemassa olon varmistamiseen liittyvää toiminnallisuutta. 
+Tällä hetkellä ohjelman sovelluslogiikka sisältää tiedonkäsittelyyn ja tallentamiseen, tietokannan olemassa olon varmistamiseen, sekä viestin kääntämiseen toiselle kielelle liittyvää toiminnallisuutta. 
 
-Tarkoituksena on kehittää ohjelmaa siten, että sovelluslogiikkaan lisätään viestin sisältöön liittyviä tarkastuksia, sekä mahdollisuus kääntää viesti toiselle kielelle gooletrans-kirjaston avulla.
+Tarkoituksena on kehittää ohjelmaa siten, että sovelluslogiikkaan lisätään viestin sisältöön liittyviä tarkastuksia, sekä mahdollisesti undo- ja redo-toiminnot.
+
+## Päätoiminnallisuudet
+
+### Uuden viestin luominen
+
+Alla on sekvenssikaavio uuden viestipohjan luomisesta:
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant MainWindow
+  participant ManagementWindow
+  participant MessageHandler
+  participant MessageDB
+  User->>MainWindow: click "Modify templates" button
+  MainWindow->>ManagementWindow: open ManagementWindow
+  User->>ManagementWindow: click "Add new message" button
+  User->>ManagementWindow: insert message text
+  User->>ManagementWindow: click "Create" button
+  ManagementWindow-->>MessageHandler: add_new_message()
+  MessageHandler-->>MessageDB: insert_new_message()
+```
+
