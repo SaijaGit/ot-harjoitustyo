@@ -12,3 +12,59 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 - [Testikattavuusraportti 17.4.2023](./dokumentaatio/testaus.md)
 - [Changelog](./dokumentaatio/Changelog.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+
+## Ohjelman asennus ja ajaminen Poetryllä
+
+- Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+- Alusta ohjelman suoritus komennolla:
+
+```bash
+poetry run invoke build
+```
+
+- Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
+
+## Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+Käynnistä ohjelma komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Käynnistä testit komennolla:
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+Generoi testikattavuusraportti komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti generoituu _htmlcov_-hakemistoon.
+
+### Pylint
+
+Suorita tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset komennolla:
+
+```bash
+poetry run invoke lint
+```
