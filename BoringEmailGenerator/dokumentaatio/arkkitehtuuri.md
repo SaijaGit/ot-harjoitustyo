@@ -117,5 +117,6 @@ sequenceDiagram
   User->>ManagementWindow: click "Create" button
   ManagementWindow-->>MessageHandler: add_new_message()
   MessageHandler-->>MessageDB: insert_new_message()
+  ManagementWindow->>MainWindow: update_combobox_contents()
 ```
 
