@@ -12,3 +12,10 @@
 - Luotu uusi luokka MessageHandler toimimaan käyttöliittymän ja tietokantaa hoitavan MessageDB-luokan väliin. Sen avulla saatiin siistittyä käyttöliittymän ja MessageDB:n koodia, sillä se hoitaa tiedon muuntamisen molempien luokkien tarvitsemaan muotoon.
 - Lisättiin Pylint ja korjattiin sen ilmoittamat virheet.
 - Lisättiin testit MessageHandler-luokalle.
+
+## Viikko 5
+- Lisätty käännöstä varten kielivalikot ja käynnistysnappi pääikkunaan.
+- Siirretty käyttöliittymän tyylimäärittelyt omaan tiedostoon ja siistitty käyttöliittymäluokkia.
+- Luotu uusi luokka MessageTranslator hoitamaan viestien kääntämistä googletrans-kirjaston avulla.
+- Lisättiin testit MessageTranslator-luokalle.
+- Koska googletrans ei aina toimi luotettavasti, on luotu myös InfoWindow-ikkuna, jonka on tarkoitus viestiä käyttäjälle käännöksen toiminnasta. Se ei ole vielä valmis, joten on toistaiseksi kommentoitu pois.
