@@ -35,15 +35,14 @@
 
 ### Viikko 4
 #### Harjoitustyö
-- [Testikattavuusraportti 17.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
-- [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
+- [Testikattavuusraportti 17.4.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-04-17%20at%2004-54-02%20Coverage%20report.png)
 
 
 
 ### Viikko 5
-Palautuksen deadline tiistai __25.4.__ klo 23:59
 #### Harjoitustyö
-
+- [Testikattavuusraportti 25.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
+- [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
 
 
 ### Viikko 6
