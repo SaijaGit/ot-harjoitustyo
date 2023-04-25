@@ -14,4 +14,8 @@
 | 16.4. | 3    | Lisättiin viestipohjien lisäys ja muokkaus. |
 | 17.4. | 4    | Korjattiin Pylint-virheitä ja lisättiin testit ManagementWindow-luokalle. |
 | 18.4. | 1    | luokkakaavio ja arkkitehtuurikuvaus |
-| yht | 39    |  |
+| 22.4. | 5    | tutkittiin googletrans-kirjastoa ja luotiin luokka MessageTranslator |
+| 23.4. | 2    | Lisättiin käännöksen kielivalinnat ja käynnistysnappi pääikkunaan |
+| 24.4. | 3    | Luotiin MessageTranslatorin testit, siirrettiin tyylimäärittelyt omaan luokkaansa ja siivottiin käyttöliittymäluokkia |
+| 25.4. | 5    | Testausta ja pylint-korjauksia, luotiin InfoWindow (ja kommentoitiin se pois), päivitettiin dokumentaatiota |
+| yht | 54    |  |
