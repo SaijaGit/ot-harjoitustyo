@@ -13,6 +13,9 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 - [Changelog](./dokumentaatio/Changelog.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 
+## Release
+- [viikko5](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Ohjelman asennus ja ajaminen Poetryllä
 
 - Asenna riippuvuudet komennolla:
