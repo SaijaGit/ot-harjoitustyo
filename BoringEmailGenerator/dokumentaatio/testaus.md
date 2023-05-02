@@ -14,9 +14,10 @@ MessageDB-luokkaa testataan [TestMessageDB](https://github.com/SaijaGit/ot-harjo
 
 Luokka `MessageTranslator` hoitaa viestin kääntämisen googletrans-kirjaston avulla. Sitä testataan [TestMessageTranslator](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_message_translator.py)-testiluokalla. Sen testaaminen kattavasti on hieman haastavaa, sillä luokan toiminta riippuu täysin googletrans-kirjaston tarjoamasta Googlen verkossa toimivasta käännöspalvelusta, jonka ilmaisversio toimii aika epäluotettavasti.
 
+Luokka `MessageChecker` tarkastaa, sisältääkö kopioitava viesti kenttiä, jotka voivat merkitä pakollista puuttuvaa dataa. Sitä testataan [TestMessageChecker](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/BoringEmailGenerator/src/tests/test_message_checker.py)-testiluokalla.
+
 ### Testauskattavuus
 
-Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 89%. Automaattisissa testeissä ei ole mukana käyttöliittymä eikä index.py.
+Tällä hetkellä sovelluksen testauksen haarautumakattavuus on 83%. Automaattisissa testeissä ei ole mukana käyttöliittymä eikä index.py.
 
-![](./kuvat/Screenshot%202023-04-25%20at%2022-44-38%20Coverage%20report.png)
-
+![](./kuvat/Screenshot%202023-05-02%20at%2023-05-49%20Coverage%20report.png)
