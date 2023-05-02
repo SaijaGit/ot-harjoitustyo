@@ -18,4 +18,7 @@
 | 23.4. | 2    | Lisättiin käännöksen kielivalinnat ja käynnistysnappi pääikkunaan |
 | 24.4. | 3    | Luotiin MessageTranslatorin testit, siirrettiin tyylimäärittelyt omaan luokkaansa ja siivottiin käyttöliittymäluokkia |
 | 25.4. | 5    | Testausta ja pylint-korjauksia, luotiin InfoWindow (ja kommentoitiin se pois), päivitettiin dokumentaatiota |
-| yht | 54    |  |
+| 27.4. | 5    | Tutkittiin eri tapoja toteuttaa info-ikkunoita. Lisättiin pääikkunan käyttöliittymään infolabel, joka kertoo että käännös meneillään. |
+| 28.4. | 4    | Luotiin uusi luokka MessageChecker tarkistamaan puuttuuko viestistä ns. pakollista tietoa ja informoimaan siitä message boxilla. Lisättiin Message box myös MessageTranslator-luokalle. |
+| 2.5. | 5    | Lisättiin testit MessageChecker-luokalle, tehtiin testausta ja pylint-korjauksia, Docstring- kommentointia ja päivitettiin dokumentaatiota|
+| yht | 68    |  |
