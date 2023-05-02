@@ -57,6 +57,12 @@ def configure_management_window_styles():
         'Create.TButton', green_background, green_background_active)
 
 
+def configure_messagebox_style():
+    messagebox_style = ttk.Style()
+    messagebox_style.configure(
+        'Info.Messagebox', background=bg_colour, font=("Georgia", 12))
+
+
 def configure_combobox_style(style_name):
     combobox_style = ttk.Style()
     combobox_style.configure(style_name, padding=(5, 2, 5, 2))

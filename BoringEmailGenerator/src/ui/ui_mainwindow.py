@@ -1,7 +1,9 @@
 from tkinter import Tk, ttk, constants, scrolledtext
 from repositories.db_messages import MessageDB
 from .ui_managementwindow import ManagementWindow
+from .ui_infowindow import InfoWindow
 from message_translator import MessageTranslator
+from message_checker import MessageChecker
 from .styles import configure_main_window_styles, bg_colour
 
 
@@ -17,6 +19,7 @@ class MainWindow:
         self.message_texts = self._message_handler.all_message_texts_grouped()
 
         self.translator = MessageTranslator()
+        self.checker = MessageChecker()
         self.translate_language_inputs = []
 
         self._management_window = None
@@ -130,6 +133,14 @@ class MainWindow:
         translate_button.grid(row=4, column=3, columnspan=1,
                               padx=10, pady=10, sticky=(constants.W, constants.E))
 
+    def _draw_translation_label(self):
+        wait_text = "Please wait patiently while the translation\n is requested from the online service"
+        self.translation_label = ttk.Label(master=self._root, text=wait_text)
+        self.translation_label.config(font=("Georgia", 20, "bold"),
+                                      background='pink', justify="center")
+        self.translation_label.place(relx=0.5, rely=0.5, anchor="center")
+        self.translation_label.lift()
+
     def _handle_comboboxes(self, event):
         combobox = event.widget
         value = combobox.get()
@@ -148,8 +159,10 @@ class MainWindow:
     def _handle_copy_button_click(self):
         entry_value = self._message_entry.get('1.0', 'end-1c')
         print(f"COPY BUTTON!! Value of entry is: {entry_value}")
-        self._root.clipboard_clear()
-        self._root.clipboard_append(entry_value)
+
+        if self.checker.check_mandatory_fields_to_copy(entry_value) is True:
+            self._root.clipboard_clear()
+            self._root.clipboard_append(entry_value)
 
     def _handle_translate_button_click(self):
         translate_from = self.translate_language_inputs[0].get()
@@ -161,13 +174,20 @@ class MainWindow:
 
         else:
             print(f"LANGUAGE BUTTON!! Value of entry is: {original_text}")
+
+            self._draw_translation_label()
+            self._root.update()
+
             translated_text = self.translator.translate_message(
+
                 original_text, translate_from, translate_to)
             if translated_text is not None:
                 self._message_entry.delete('1.0', 'end')
                 self._message_entry.insert('1.0', translated_text)
                 self._message_entry.mark_set("insert", "end-1c")
                 self._message_entry.focus_set()
+
+            self.translation_label.place_forget()
 
     def _handle_management_window_button_click(self):
 

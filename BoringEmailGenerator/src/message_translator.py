@@ -1,39 +1,44 @@
-# THERE WILL BE (HOPEFULLY) AN INFO WINDOW OPENING ABOUT
-# THE STATUS OF THE TRANSLATION.
-# I COULD NOT GET IT TO WORK IN TIME, SO THE RELATED LINES
-# ARE COMMENTED OUT!!
-
 from time import sleep
+from tkinter import messagebox
 from googletrans import Translator, LANGUAGES, models
 # from ui.ui_infowindow import InfoWindow
-# from google_trans_new import google_translator
-# from deep_translator import GoogleTranslator
+# from ui.styles import configure_messagebox_style
 
 
 class MessageTranslator:
+    """A class for translating messages using a free Google Translate 
+        library called googletrans.
+    """
+
     def __init__(self):
+        """Initialize a new instance of the MessageTranslator class."""
 
         self.translator = Translator(raise_exception=True)
-        # self.translator = google_translator()
         # self.info_window = None
+        # configure_messagebox_style()
 
     def translate_message(self, text, language_from, language_to):
+        """Translate a message from one language to another.
+            If the translation fails, it is tried max 6 times, and then 
+            a message box is opened to ask the user wether they want to cancel or
+            try again.
+
+        Args:
+            text (str): The message text to be translated.
+            language_from (str): The language code of the original language of the message.
+            language_to (str): The language code of the target language for the translation.
+
+        Returns:
+            str: The translated message, or None if the translation failed.
+        """
+
         language_code_from = self.get_language_code(language_from)
         language_code_to = self.get_language_code(language_to)
         result_translated = None
         result = None
+        try_again = 0
 
-        # if self.info_window is None:
-        # title = "Translating..."
-        # infotext = "Please wait patiently while the translation is requested "
-        #   "from the online service"
-
-        # self.info_window = InfoWindow(title, infotext, None, None, None, None)
-
-        print("translate_message: language_code_from = ", language_code_from,
-              ", language_code_to = ", language_code_to, ", text = \n ", text)
-
-        for try_again in range(6):
+        while try_again < 6:
 
             # Unfortunately it seems that googletrans library do not provide specific
             # exception classes, so have to use just "Exception" and ignore it for pylint!
@@ -41,39 +46,56 @@ class MessageTranslator:
             # to catch all possible interrupts just in case.
             # pylint: disable=broad-except
             try:
-                # result_translated = GoogleTranslator(
-                # source=language_code_from, target=language_code_to).translate(text)
                 result_translated = self.translator.translate(
                     text, language_code_to, language_code_from)
                 if isinstance(result_translated, models.Translated):
                     result = result_translated.text
-                    print("translate_message: result = ", result)
-                    # self.info_window.close()
                     return result
 
             except Exception as error_message:
-                # result = text + "\n\nTranslation failed: " + str(error_message)
-                print("translate_message, try nr. ", try_again+1, ":  Translation failed: " +
+                try_again += 1
+                print("translate_message, try nr. ", try_again, ":  Translation failed: " +
                       str(error_message))
-                sleep(2)
 
-        # if self.info_window is None:
-        # title = "Translating failed"
-        # infotext = "Unfortunately, getting the translation from the online service "
-        #   "was not successful!"
-        # button1 = "Return"
-        # button2 = "Try again"
-        # self.info_window = InfoWindow(title, infotext, button1, button2, None, None)
+                if try_again == 6:
+                    error_text = (
+                        "Unfortunately the translation could not be completed. "
+                        "Do you want to cancel or try again?")
+
+                    button_result = messagebox.askretrycancel(
+                        "Translation failed",
+                        error_text
+                    )
+
+                    if not button_result:
+                        break
+
+                    try_again = 0
+
+                sleep(2)
 
         return None
 
     def get_language_code(self, language):
+        """Get the language code that mathces the language name.
+
+        Args:
+            language (str): The name of the language.
+
+        Returns:
+            str: The language code, or None if there was no such language found.
+        """
         for language_code, language_in_dict in LANGUAGES.items():
             if language == language_in_dict:
                 return language_code
         return None
 
     def get_language_list(self):
+        """Get a list of the names of the languages that are supported.
+
+        Returns:
+            list: A list of supported language names.
+        """
         language_list = []
         language_list = list(LANGUAGES.values())
         return language_list
