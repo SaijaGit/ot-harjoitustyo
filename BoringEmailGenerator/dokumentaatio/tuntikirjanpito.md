@@ -20,5 +20,5 @@
 | 25.4. | 5    | Testausta ja pylint-korjauksia, luotiin InfoWindow (ja kommentoitiin se pois), päivitettiin dokumentaatiota |
 | 27.4. | 5    | Tutkittiin eri tapoja toteuttaa info-ikkunoita. Lisättiin pääikkunan käyttöliittymään infolabel, joka kertoo että käännös meneillään. |
 | 28.4. | 4    | Luotiin uusi luokka MessageChecker tarkistamaan puuttuuko viestistä ns. pakollista tietoa ja informoimaan siitä message boxilla. Lisättiin Message box myös MessageTranslator-luokalle. |
-| 2.5. | 5    | Lisättiin testit MessageChecker-luokalle, tehtiin testausta ja pylint-korjauksia, Docstring- kommentointia ja päivitettiin dokumentaatiota|
-| yht | 68    |  |
+| 2.5. | 3    | Lisättiin testit MessageChecker-luokalle, tehtiin testausta ja pylint-korjauksia, Docstring- kommentointia ja päivitettiin dokumentaatiota|
+| yht | 66    |  |
