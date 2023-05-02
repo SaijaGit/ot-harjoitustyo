@@ -9,9 +9,14 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 ## Dokumentaatio
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
-- [Testikattavuusraportti 25.4.2023](./dokumentaatio/testaus.md)
+- [Testikattavuusraportti 2.5.2023](./dokumentaatio/testaus.md)
 - [Changelog](./dokumentaatio/Changelog.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+
+## Docstring-kommentit
+Docstring-kommentit lisätty luokille message_checker.py ja message_translator.py
+- [message_checker.py](./src/message_checker.py)
+- [message_translator.py](./src/message_translator.py)
 
 ## Release
 - [viikko5](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/viikko5)
