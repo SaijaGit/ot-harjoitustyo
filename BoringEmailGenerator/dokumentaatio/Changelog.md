@@ -19,3 +19,10 @@
 - Luotu uusi luokka MessageTranslator hoitamaan viestien kääntämistä googletrans-kirjaston avulla.
 - Lisättiin testit MessageTranslator-luokalle.
 - Koska googletrans ei aina toimi luotettavasti, on luotu myös InfoWindow-ikkuna, jonka on tarkoitus viestiä käyttäjälle käännöksen toiminnasta. Se ei ole vielä valmis, joten on toistaiseksi kommentoitu pois.
+
+## Viikko 6
+- Lisätty pääikkunan käyttöliittymään infolabel, joka kertoo että käännös meneillään.
+- Luotu uusi luokka MessageChecker tarkistamaan puuttuuko viestistä ns. pakollista tietoa ja informoimaan siitä message boxilla.
+- Lisättiin testit MessageChecker-luokalle.
+- Lisätty MessageTranslator-luokkaan myös message box, joka informoi käyttäjää jos käännöstä ei saada noudettua.
+- Lisätty Docstring-kommentit luokille MessageChecker ja MessageTranslator.

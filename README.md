@@ -47,8 +47,9 @@
 
 
 ### Viikko 6
-Palautuksen deadline tiistai __2.5.__ klo 23:59
 #### Harjoitustyö
+- [Testikattavuusraportti 2.5.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
+
 
 
 
