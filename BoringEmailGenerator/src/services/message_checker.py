@@ -4,7 +4,8 @@ from tkinter import messagebox
 
 class MessageChecker:
 
-    """MessageChecker is a class for checking if a message text contains mandatory fields.
+    """
+    Class for checking if a message text contains mandatory fields
 
     Attributes:
         mandatory_field (str): Regular expression pattern for identifying substrings that 
@@ -22,13 +23,14 @@ class MessageChecker:
     """
 
     def __init__(self):
-        self.mandatory_field = r'\[[\w\d]{1,20}\]'
+        self.mandatory_field = r'\[[\w\d\s]{1,20}\]'
 
     def check_mandatory_fields_to_copy(self, message_text):
-        """Checks if message_text contains mandatory fields, and if they are found,
-            opens a message box that informs the user with a list of suspected
-            mandatory fields, and asks user to click yes or no for continuing
-            the copying. 
+        """
+        Checks if message_text contains mandatory fields, and if they are found,
+        opens a message box that informs the user with a list of suspected
+        mandatory fields, and asks user to click yes or no for continuing
+        the copying. 
 
         Args:
             message_text (str): The text of the message to check.
@@ -36,12 +38,11 @@ class MessageChecker:
         Returns:
             bool: True if the user chooses to continue, and False otherwise.
         """
-
         missing_fields = self.contains_mandatory_field(message_text)
         if missing_fields is not None:
             fields_text = ', '.join(missing_fields)
             error_text = (
-                f"The message contains the following mandatory fields:\n{fields_text}. "
+                f"The message contains the following mandatory fields:\n{fields_text}"
                 "\n\nDo you still want to copy the message? "
             )
 
@@ -49,24 +50,25 @@ class MessageChecker:
                 "Check the message for missing information!",
                 error_text
             )
-            print("MessageChecker: button_result = ", button_result)
             if button_result == "no":
-                print("MessageChecker: return False ", button_result)
                 return False
+
         return True
 
     def contains_mandatory_field(self, message_text):
-        """Searches for and returns a list of suspected mandatory fields found 
+        """
+        Searches for and returns a list of suspected mandatory fields found 
         from the message_text.
 
         Args:
-            message_text (str): The text of the message to search for mandatory fields.
+            message_text (str): The text of the message to search for mandatory fields
 
         Returns:
             list or None: A list of suspected mandatory fields found in the message_text,
-            or None if none were found.
+            or None if none were found
         """
-
-        found_fields = None
         found_fields = re.findall(self.mandatory_field, message_text)
-        return found_fields
+        if len(found_fields) != 0:
+            return found_fields
+
+        return None

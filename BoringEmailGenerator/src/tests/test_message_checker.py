@@ -1,5 +1,6 @@
 import unittest
-from message_checker import MessageChecker
+from unittest.mock import patch
+from services.message_checker import MessageChecker
 
 
 class TestMessageChecker(unittest.TestCase):
@@ -27,3 +28,20 @@ class TestMessageChecker(unittest.TestCase):
         expected = True
 
         self.assertEqual(result, expected)
+
+    def test_check_mandatory_fields_to_copy_yes(self):
+        message = "The shetland pony called [PONY NAME] is the best."
+        expected_result = True
+
+        with patch('services.message_checker.messagebox.askquestion', return_value='yes'):
+            result = self.checker.check_mandatory_fields_to_copy(message)
+
+        self.assertEqual(result, expected_result)
+
+    def test_check_mandatory_fields_to_copy_no(self):
+        message = "The shetland pony called [PONY NAME] is the best."
+        expected_result = False
+        with patch('services.message_checker.messagebox.askquestion', return_value='no'):
+            result = self.checker.check_mandatory_fields_to_copy(message)
+
+        self.assertEqual(result, expected_result)

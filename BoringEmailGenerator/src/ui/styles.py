@@ -1,5 +1,9 @@
 from tkinter import ttk
 
+"""
+This module defines colors and styles for the ui classes.
+"""
+
 
 # COLORS:
 bg_colour = "#bbe1fa"
@@ -29,6 +33,9 @@ yellow_background_active = '#e8c515'
 
 
 def configure_main_window_styles():
+    """
+    Defines styles that are used in the the MainWindow.
+    """
     configure_combobox_style('TCombobox')
     configure_button_style(
         'Manage.TButton', purple_background, purple_background_active)
@@ -42,6 +49,9 @@ def configure_main_window_styles():
 
 
 def configure_management_window_styles():
+    """
+    Defines styles that are used in the the ManagementWindow.
+    """
     configure_group_background_style('Group.TFrame')
     configure_button_style(
         'Group.TButton', purple_background, purple_background_active)

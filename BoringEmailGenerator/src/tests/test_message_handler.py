@@ -1,12 +1,11 @@
 import unittest
 from repositories.db_messages import MessageDB
-from message_handler import MessageHandler
+from services.message_handler import MessageHandler
 from config import TESTDATABASE
 
 
 class TestMessageHandler(unittest.TestCase):
     def setUp(self):
-        # db_file = 'test_messages.db'
         database = MessageDB(TESTDATABASE)
         database.remove_table('message_groups')
         database.remove_table('messages')
@@ -65,8 +64,6 @@ class TestMessageHandler(unittest.TestCase):
         amount_before = len(messages_before)
         message_1_before_id = messages_before[1].message_id
         message_1_before_text = messages_before[1].text
-        print("messages_before: ", messages_before,
-              " amount_before: ", amount_before)
         self.message_handler.delete_message(messages_before[0])
         messages_after = self.message_handler.messages_by_group(2)
         amount_after = len(messages_after)

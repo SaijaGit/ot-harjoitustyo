@@ -5,7 +5,6 @@ from config import DATABASE
 
 class TestMessageDB(unittest.TestCase):
     def setUp(self):
-        # db_file = 'test_messages.db'
         self.database = MessageDB(DATABASE)
         self.database.remove_table('message_groups')
         self.database.remove_table('messages')

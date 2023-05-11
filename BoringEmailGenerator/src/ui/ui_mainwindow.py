@@ -1,9 +1,7 @@
-from tkinter import Tk, ttk, constants, scrolledtext
-from repositories.db_messages import MessageDB
+from tkinter import ttk, constants, scrolledtext
 from .ui_managementwindow import ManagementWindow
-from .ui_infowindow import InfoWindow
-from message_translator import MessageTranslator
-from message_checker import MessageChecker
+from services.message_translator import MessageTranslator
+from services.message_checker import MessageChecker
 from .styles import configure_main_window_styles, bg_colour
 
 
@@ -144,7 +142,6 @@ class MainWindow:
     def _handle_comboboxes(self, event):
         combobox = event.widget
         value = combobox.get()
-        print(f"COMBOBOX!! Value of entry is: {value}")
         combobox.set(combobox.group_name)
         self._message_entry.insert('end', value)
         self._message_entry.see("end-1c")
@@ -154,11 +151,9 @@ class MainWindow:
     def _handle_language_comboboxes(self, event):
         combobox = event.widget
         value = combobox.get()
-        print(f"LANGUAGE COMBOBOX!! Value of entry is: {value}")
 
     def _handle_copy_button_click(self):
         entry_value = self._message_entry.get('1.0', 'end-1c')
-        print(f"COPY BUTTON!! Value of entry is: {entry_value}")
 
         if self.checker.check_mandatory_fields_to_copy(entry_value) is True:
             self._root.clipboard_clear()
@@ -169,18 +164,12 @@ class MainWindow:
         translate_to = self.translate_language_inputs[1].get()
 
         original_text = self._message_entry.get('1.0', 'end-1c')
-        if original_text == "" or translate_from == "Translate from" or translate_to == "Translate to":
-            print(f"LANGUAGE BUTTON!! No text! {original_text}")
-
-        else:
-            print(f"LANGUAGE BUTTON!! Value of entry is: {original_text}")
-
+        if original_text != "" or translate_from != "Translate from" or translate_to != "Translate to":
             self._draw_translation_label()
             self._root.update()
-
             translated_text = self.translator.translate_message(
-
                 original_text, translate_from, translate_to)
+
             if translated_text is not None:
                 self._message_entry.delete('1.0', 'end')
                 self._message_entry.insert('1.0', translated_text)
@@ -188,6 +177,8 @@ class MainWindow:
                 self._message_entry.focus_set()
 
             self.translation_label.place_forget()
+            self.translate_language_inputs[0].set("Translate from")
+            self.translate_language_inputs[1].set("Translate to")
 
     def _handle_management_window_button_click(self):
 

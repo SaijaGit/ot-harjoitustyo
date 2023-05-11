@@ -3,7 +3,18 @@ from .styles import configure_management_window_styles, bg_colour
 
 
 class ManagementWindow(Toplevel):
+    """A class representing the management window that contains tools for adding, modifying and deleting message templates."""
+
     def __init__(self, master=None, message_handler=None, update_combobox_groups_func=None, update_combobox_contents_func=None):
+        """Constructor for ManagementWindow.
+
+        Args:
+            master: The parent of the management window, in this case the main window of the program.
+            message_handler: An object that connucates with the database query classes, and modifies the fetched data into suitable form for ui.
+            update_combobox_groups_func: A function to update the groups of the main window comboboxes.
+            update_combobox_contents_func: A function to update the contents of the main window comboboxes.
+            """
+
         super().__init__(master)
 
         self._root = master
@@ -14,6 +25,12 @@ class ManagementWindow(Toplevel):
         self.title("Manage Message Templates")
 
     def start(self):
+        """Start the management window
+
+        This method initializes and displays the management window by creating a canvas and setting up scrollbar for the window.
+        It retrieves the group names and message texts from
+        the message handler and calls the drawing functiions for the UI elements such as text fields and buttons.
+        """
 
         configure_management_window_styles()
 
@@ -44,6 +61,7 @@ class ManagementWindow(Toplevel):
 
         self.configure(bg=bg_colour)
         self.canvas.configure(bg=bg_colour)
+        self.protocol("WM_DELETE_WINDOW", self._on_close)
 
         self.group_names = self._message_handler.group_name_list()
         self.messages = self._message_handler.all_messages_grouped()
@@ -58,12 +76,57 @@ class ManagementWindow(Toplevel):
         self._draw_message_template_area()
 
     def _on_mousewheel(self, event):
-        self.canvas.yview_scroll(-1 * (event.delta // 120), "units")
+        """
+        Handle mousewheel event.
+
+        This method is called when a mousewheel event occurs. 
+        It adjusts the scrolling of the canvas based on the mousewheel event value.
+
+        Args:
+            event (Event): The mousewheel event object.
+        """
+        if hasattr(self, "canvas"):
+            self.canvas.yview_scroll(-1 * (event.delta // 120), "units")
 
     def _on_content_resize(self, event):
+        """
+        Handle content resize event.
+
+        This method is called when the management window is resized. 
+        It adjusts the scroll region to match the new size.
+
+        Args:
+            event (Event): The content resize event object.
+        """
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
+    def _on_close(self):
+        """
+        Handle window close event.
+
+        This method is called when the management window is closed. 
+        It unbinds the mousewheel and resize events from the management window
+        components. If this was not done, it would cause an exeption, if the mousewheel
+        would be used after closing the management window.
+        To be safe, it also destroys the canvas, scrollbar and the whole management window.
+        """
+        self.canvas.unbind_all("<MouseWheel>")
+        self.main_frame.unbind("<Configure>")
+        self.canvas.destroy()
+        self.scrollbar.destroy()
+        self.destroy()
+
     def _draw_message_template_area(self):
+        """
+        Draw the message template area.
+
+        This method creates the message template area of the management window. 
+        For every message group it calls the drawing functions for:
+            - group name header
+            - input field and button for changing the group name
+            - new template adding button
+            - message modification controls for every message template
+        """
         for i in range(8):
             group_name = f"Group #{i+1}: {self.group_names[i]}"
             self.group_name_variables.append(StringVar())
@@ -75,9 +138,13 @@ class ManagementWindow(Toplevel):
             self.group_message_frames.append(self._draw_group_frame(i))
             self._draw_message_controls(i)
 
-        # self.main_frame.pack(fill=BOTH, expand=True)
-
     def _draw_header1(self):
+        """
+        Draw the main header of the management window.
+
+        This method creates the first and biggest header containing the 
+        program name "Boring Email Generator".
+        """
         header1_label = ttk.Label(
             master=self.main_frame, text="Boring Email Generator")
         header1_label.config(font=("Georgia", 30, "bold"),
@@ -85,6 +152,12 @@ class ManagementWindow(Toplevel):
         header1_label.grid(row=0, column=0, columnspan=4, pady=15)
 
     def _draw_header2(self):
+        """
+        Draw the second header of the management window.
+
+        This method creates the second header containing the window name 
+        and instruction "Modify templates".
+        """
         header2_label = ttk.Label(
             master=self.main_frame, text="Modify templates")
         header2_label.config(font=("Georgia", 20, "bold"),
@@ -93,6 +166,16 @@ class ManagementWindow(Toplevel):
                            padx=15, pady=15, sticky="w")
 
     def _draw_header3(self, header3_id, group_name_variable):
+        """
+        Draw the group header in the message template area.
+
+        This method creates the header for a group, containing the name 
+        of the group in question.
+
+        Args:
+            header3_id (Event): The content resize event object.
+            group_name_variable (StringVar)
+        """
         header3_label = ttk.Label(
             master=self.main_frame, textvariable=group_name_variable)
         header3_label.config(font=("Georgia", 15, "bold"),
@@ -102,12 +185,24 @@ class ManagementWindow(Toplevel):
         self.group_name_headers.append(header3_label)
 
     def _draw_group_name_entry(self, entry_id):
+        """
+        Draw the group name entry in the message template area.
+
+        This method creates an input field for changing the group name of 
+        the group in question.
+        """
         group_name_entry = ttk.Entry(master=self.main_frame)
         group_name_entry.grid(row=2*entry_id+2, column=1,
                               columnspan=1, padx=15, pady=(40, 5), sticky="we")
         self.group_name_entries.append(group_name_entry)
 
     def _draw_group_name_button(self, button_id):
+        """
+        Draw the group name button in the message template area.
+
+        This method creates a button for changing the group name of 
+        the group in question.
+        """
         group_name_button = ttk.Button(master=self.main_frame, text="Rename group", style='Group.TButton',
                                        command=lambda: self.handle_group_name_button(button_id))
         group_name_button.grid(row=2*button_id+2, column=2, columnspan=1,
@@ -115,6 +210,13 @@ class ManagementWindow(Toplevel):
         self.group_name_buttons.append(group_name_button)
 
     def _draw_new_message_button(self, button_id):
+        """
+        Draw the new message button in the message template area.
+
+        This method creates a button for changing the new message of 
+        the group in question.
+        """
+
         new_message__button = ttk.Button(master=self.main_frame, text="Add new template", style='New.TButton',
                                          command=lambda: self.handle_new_message_button(button_id))
         new_message__button.grid(row=2*button_id+2, column=3, columnspan=1,
@@ -128,7 +230,6 @@ class ManagementWindow(Toplevel):
         group_frame.grid_columnconfigure((2, 3), weight=0)
         group_frame.grid_columnconfigure((0, 1), weight=1)
         return group_frame
-        # self.group_message_frames.append(group_frame)
 
     def _draw_message_controls(self, frame_id):
         message_count = len(self.messages[frame_id])
@@ -143,8 +244,6 @@ class ManagementWindow(Toplevel):
         message_entry = scrolledtext.ScrolledText(
             master=self.group_message_frames[frame_id], height=6, wrap="word")
         message_entry.insert('end', message_text)
-        message_entry.insert(
-            'end', f"Frame id: {frame_id}, message_id: {message_id}, row = {message_id*2}")
         message_entry.grid(row=message_id*2, column=0, columnspan=4, sticky=(
             constants.E, constants.W), padx=2, pady=(15, 2))
         return message_entry
@@ -185,11 +284,8 @@ class ManagementWindow(Toplevel):
 # BUTTONS:
 # CHANGE GROUP NAME:
 
-
     def handle_group_name_button(self, button_id):
-        print("handle_group_name_button: button_id = ", button_id)
         entry_value = self.group_name_entries[button_id].get()
-        print("handle_group_name_button: entry_value = ", entry_value)
         self._message_handler.rename_group(button_id, entry_value)
         self.group_name_variables[button_id].set(
             f"Group #{button_id+1}: {entry_value}")
@@ -200,10 +296,6 @@ class ManagementWindow(Toplevel):
 
 
     def handle_delete_message_button(self, frame_id, button_id):
-        print("handle_delete_message_button: frame_id = ",
-              frame_id, ", button_id = ", button_id)
-        print(
-            "handle_delete_message_button: self.group_message_frames[frame_id][button_id] = ", self.group_message_frames[frame_id])
         self._message_handler.delete_message(
             self.messages[frame_id][button_id])
         self.messages = self._message_handler.all_messages_grouped()
@@ -217,7 +309,6 @@ class ManagementWindow(Toplevel):
     def handle_save_message_button(self, frame_id, message_id, text_area):
         text = text_area.get('1.0', 'end-1c')
         group = frame_id
-        print("handle_save_message_button: group = ", group, ", text = ", text)
         self._message_handler.update_message(
             self.messages[frame_id][message_id], text)
         self.messages = self._message_handler.all_messages_grouped()
@@ -233,7 +324,6 @@ class ManagementWindow(Toplevel):
 
 
     def handle_new_message_button(self, button_id):
-        print("handle_new_message_button: button_id = ", button_id)
         place = len(self.messages[button_id])
         text = "Type your new message template here!"
         new_text_entry = self.draw_message_text_area(button_id, place, text)
@@ -241,11 +331,8 @@ class ManagementWindow(Toplevel):
         self._draw_cancel_message_button(button_id, place)
         self._draw_create_message_button(button_id, place)
         self.create_message_entries[button_id] = new_text_entry
-        # self.messages[button_id].append(text)
-        # self.draw_message_text_area(button_id, len(self.messages[button_id]), "Type your new message template here!")
 
     def handle_cancel_message_button(self, frame_id):
-        print("handle_cancel_message_button: button_id = ", frame_id)
         self.group_message_frames[frame_id].destroy()
         self.group_message_frames[frame_id] = self._draw_group_frame(frame_id)
         self._draw_message_controls(frame_id)
@@ -254,7 +341,6 @@ class ManagementWindow(Toplevel):
     def handle_create_message_button(self, frame_id):
         text = self.create_message_entries[frame_id].get('1.0', 'end-1c')
         group = frame_id
-        print("handle_create_message_button: group = ", group, ", text = ", text)
         self._message_handler.add_new_message(group, text)
         self.messages = self._message_handler.all_messages_grouped()
 

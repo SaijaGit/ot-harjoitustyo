@@ -2,15 +2,10 @@ from tkinter import Tk
 from ui.ui_mainwindow import MainWindow
 from repositories.db_messages import MessageDB
 from config import DATABASE
-from message_handler import MessageHandler
+from services.message_handler import MessageHandler
 
-
-# import sys
-# from ui.ui_managementwindow import ManagementWindow
 
 def main():
-    # print(sys.path)
-    # db_file = 'messages.db'
     database = MessageDB(DATABASE)
     message_handler = MessageHandler(database)
 

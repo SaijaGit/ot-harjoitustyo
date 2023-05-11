@@ -1,21 +1,17 @@
 from time import sleep
 from tkinter import messagebox
 from googletrans import Translator, LANGUAGES, models
-# from ui.ui_infowindow import InfoWindow
-# from ui.styles import configure_messagebox_style
 
 
 class MessageTranslator:
-    """A class for translating messages using a free Google Translate 
-        library called googletrans.
+    """
+    A class for translating messages using a free Google Translate 
+    library called googletrans.
     """
 
     def __init__(self):
         """Initialize a new instance of the MessageTranslator class."""
-
         self.translator = Translator(raise_exception=True)
-        # self.info_window = None
-        # configure_messagebox_style()
 
     def translate_message(self, text, language_from, language_to):
         """Translate a message from one language to another.
@@ -38,7 +34,7 @@ class MessageTranslator:
         result = None
         try_again = 0
 
-        while try_again < 6:
+        while try_again < 5:
 
             # Unfortunately it seems that googletrans library do not provide specific
             # exception classes, so have to use just "Exception" and ignore it for pylint!
@@ -52,12 +48,10 @@ class MessageTranslator:
                     result = result_translated.text
                     return result
 
-            except Exception as error_message:
+            except Exception:
                 try_again += 1
-                print("translate_message, try nr. ", try_again, ":  Translation failed: " +
-                      str(error_message))
 
-                if try_again == 6:
+                if try_again == 5:
                     error_text = (
                         "Unfortunately the translation could not be completed. "
                         "Do you want to cancel or try again?")
