@@ -19,7 +19,7 @@ Docstring-kommentit lisätty luokille message_checker.py ja message_translator.p
 - [message_translator.py](./src/message_translator.py)
 
 ## Release
-- [viikko5](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/viikko5)
+- [katselmointi](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/katselmointi)
 
 ## Ohjelman asennus ja ajaminen Poetryllä
 
