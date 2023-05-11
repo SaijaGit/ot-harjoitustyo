@@ -17,12 +17,11 @@ class MessageDB:
         Args:
             db_file (str): The name of the file where the database is saved 
         """
-        
+
         self.db_connection = sqlite3.connect(db_file)
         self.cursor = self.db_connection.cursor()
         self.message_id_vs_place = {}
         self.initialize_db()
-
 
     def initialize_db(self):
         """
@@ -38,7 +37,6 @@ class MessageDB:
         if not self.table_exists("message_groups"):
             example_group_names = get_example_group_names()
             self.create_example_groups(example_group_names)
-
 
     def table_exists(self, tablename):
         """
@@ -63,8 +61,7 @@ class MessageDB:
             return True
 
         return False
-    
-    
+
     def create_example_groups(self, example_group_names):
         """
         Creates a database table with example groups names.
@@ -89,7 +86,6 @@ class MessageDB:
             self.cursor.execute(query, (i, example_group_names[i-1]))
 
         self.db_connection.commit()
-
 
     def create_example_messages(self, example_message_texts):
         """
@@ -119,7 +115,6 @@ class MessageDB:
 
         self.db_connection.commit()
 
-
     def remove_table(self, tablename):
         """
         Removes a table from the database.
@@ -130,7 +125,6 @@ class MessageDB:
         query = f"DROP TABLE IF EXISTS {tablename}"
         self.cursor.execute(query)
         self.db_connection.commit()
-
 
     def get_groups(self):
         """
@@ -145,7 +139,6 @@ class MessageDB:
             group_names = self.cursor.fetchall()
             return group_names
         return None
-
 
     def all_messages(self):
         """
@@ -165,7 +158,6 @@ class MessageDB:
 
             return texts_table
         return None
-    
 
     def read_messages_from_group(self, group_id):
         """
@@ -188,7 +180,6 @@ class MessageDB:
             messages = self.cursor.fetchall()
             return messages
         return None
-
 
     def insert_new_message(self, group_id, message_text):
         """
@@ -217,7 +208,6 @@ class MessageDB:
 
         self.db_connection.commit()
 
-
     def update_message_group_name(self, group_id, name):
         """
         Updates the name of a group into the database group table.
@@ -235,7 +225,6 @@ class MessageDB:
             self.cursor.execute(query, (name, group_id))
             self.db_connection.commit()
 
-
     def update_message_text(self, message_id, text):
         """
         Updates the text of an existing message template.
@@ -252,7 +241,6 @@ class MessageDB:
                     '''
             self.cursor.execute(query, (text, message_id))
             self.db_connection.commit()
-
 
     def get_group_name(self, group_id):
         """
@@ -276,7 +264,6 @@ class MessageDB:
             if group_name is not None:
                 return group_name[0]
         return None
-    
 
     def delete_message_by_id(self, message_id):
         """

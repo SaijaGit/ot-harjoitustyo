@@ -4,6 +4,7 @@ This file provides example group names and message texts for the first use of a 
 or for the cases when the detabase file is destroyed or missing.
 """
 
+
 def get_example_group_names():
     """
     Returns a list of example group names.
