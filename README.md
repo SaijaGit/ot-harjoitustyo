@@ -51,9 +51,8 @@
 - [Testikattavuusraportti 2.5.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
 
 
-
-
 ### Lopullinen palautus
-Palautuksen deadline sunnuntai __14.5.__ klo 23:59
+- [Testikattavuusraportti 11.5.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-05-11%20at%2012-56-03%20Coverage%20report.png)
+
 #### Loppupalautus
 
