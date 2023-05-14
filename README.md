@@ -10,12 +10,13 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 Ohjelma on testattu käyttäen Windows 10 -tietokonetta ja Pytho-versiota 3.11 sekä Linux-konetta ja Python-versiota 3.10. On mahdollista, että se ei toimi samalla tavalla muissa järjestelmissä ja varsinkaan vanhemmilla Python-versioilla.
 
 ## Dokumentaatio
-- [Käyttöohje](./dokumentaatio/kayttoohje.md)
+- [Käyttöohje](https://github.com/SaijaGit/ot-harjoitustyo/blob/703be2967580c6e6462f26754b11d228b76187ca/BoringEmailGenerator/dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 - [Testausdokumentti](./dokumentaatio/testaus.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/Changelog.md)
+
 
 ## Ohjelman asennus ja ajaminen Poetryllä
 
