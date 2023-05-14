@@ -10,12 +10,12 @@ Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viest
 Ohjelma on testattu käyttäen Windows 10 -tietokonetta ja Pytho-versiota 3.11 sekä Linux-konetta ja Python-versiota 3.10. On mahdollista, että se ei toimi samalla tavalla muissa järjestelmissä ja varsinkaan vanhemmilla Python-versioilla.
 
 ## Dokumentaatio
-- [Käyttöohje](https://github.com/SaijaGit/ot-harjoitustyo/blob/703be2967580c6e6462f26754b11d228b76187ca/BoringEmailGenerator/dokumentaatio/kayttoohje.md)
-- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
-- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
-- [Testausdokumentti](./dokumentaatio/testaus.md)
-- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
-- [Changelog](./dokumentaatio/Changelog.md)
+- [Käyttöohje](./BoringEmailGenerator/dokumentaatio/kayttoohje.md)
+- [Vaatimusmäärittely](./BoringEmailGenerator/dokumentaatio/vaatimusmaarittely.md)
+- [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](./BoringEmailGenerator/dokumentaatio/testaus.md)
+- [Työaikakirjanpito](./BoringEmailGenerator/dokumentaatio/tuntikirjanpito.md)
+- [Changelog](./BoringEmailGenerator/dokumentaatio/Changelog.md)
 
 
 ## Ohjelman asennus ja ajaminen Poetryllä
@@ -58,11 +58,11 @@ Generoi testikattavuusraportti komennolla:
 poetry run invoke coverage-report
 ```
 
-Komento generoi testituloksista raportin [index.htm](./dokumentaatio/kuvat/Screenshot%202023-05-11%20at%2012-56-03%20Coverage%20report.png) _htmlcov_-hakemistoon.
+Komento generoi testituloksista raportin [index.htm](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-05-11%20at%2012-56-03%20Coverage%20report.png) _htmlcov_-hakemistoon.
 
 ### Pylint
 
-Suorita tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset komennolla:
+Suorita tiedoston [.pylintrc](./BoringEmailGenerator/.pylintrc) määrittelemät tarkistukset komennolla:
 
 ```bash
 poetry run invoke lint
