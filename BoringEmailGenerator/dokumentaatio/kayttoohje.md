@@ -3,8 +3,29 @@
 ## Ohjelmapaketin lataaminen Githubista ja purkaminen
 Lataa ohjelman uusin [release](https://github.com/SaijaGit/ot-harjoitustyo/releases) Githubista valitsemalla _Assets_-osion alta _Source code_.  
 
-## Ohjelman käynnistäminen Poetry-ympäristössä
+## Konfigurointi
 
+Ohjelma tallentaa viestipohjat sqlite-tietokannaksi tiedostoon, joka sijaitsee ohjelman juuressa _data_-hakemistossa. Testausta varten hakemistoon luodaan oma tiedosto. Jos tiedostoja ei ole, ohjelma luo ne oletusnimillä "messages.db" ja "test_messages.db".
+Tiedostojen nimiä voi halutessaan muokata käynnistyshakemistossa _.env_-tiedostossa, jonka muoto on seuraava:
+
+```
+DATABASE = messages.db
+TESTDATABASE = test_messages.db
+```
+
+## Ohjelman asennus ja käynnistäminen Poetry-ympäristössä
+
+- Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+- Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
 
 ## Ohjelman käytön aloittaminen
 
