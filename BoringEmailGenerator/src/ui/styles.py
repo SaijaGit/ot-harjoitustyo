@@ -1,12 +1,11 @@
-from tkinter import ttk
+"""This module defines colors and styles for the ui classes.
+"""
 
-"""
-This module defines colors and styles for the ui classes.
-"""
+from tkinter import ttk
 
 
 # COLORS:
-bg_colour = "#bbe1fa"
+bg_color = "#bbe1fa"
 
 button_disabled = "8c8c8c"
 button_pressed = '#000033'
@@ -33,8 +32,7 @@ yellow_background_active = '#e8c515'
 
 
 def configure_main_window_styles():
-    """
-    Defines styles that are used in the the MainWindow.
+    """Defines styles that are used in the the MainWindow.
     """
     configure_combobox_style('TCombobox')
     configure_button_style(
@@ -49,8 +47,7 @@ def configure_main_window_styles():
 
 
 def configure_management_window_styles():
-    """
-    Defines styles that are used in the the ManagementWindow.
+    """Defines styles that are used in the the ManagementWindow.
     """
     configure_group_background_style('Group.TFrame')
     configure_button_style(
@@ -70,7 +67,7 @@ def configure_management_window_styles():
 def configure_messagebox_style():
     messagebox_style = ttk.Style()
     messagebox_style.configure(
-        'Info.Messagebox', background=bg_colour, font=("Georgia", 12))
+        'Info.Messagebox', background=bg_color, font=("Georgia", 12))
 
 
 def configure_combobox_style(style_name):
@@ -95,4 +92,4 @@ def configure_textarea_style(style_name):
 
 def configure_group_background_style(style_name):
     background_style = ttk.Style()
-    background_style.configure(style_name, background=bg_colour)
+    background_style.configure(style_name, background=bg_color)

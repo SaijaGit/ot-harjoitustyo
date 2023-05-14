@@ -18,10 +18,10 @@ class MessageDB:
             db_file (str): The name of the file where the database is saved 
         """
 
-        self.db_connection = sqlite3.connect(db_file)
-        self.cursor = self.db_connection.cursor()
-        self.message_id_vs_place = {}
+        self._db_connection = sqlite3.connect(db_file)
+        self._cursor = self._db_connection.cursor()
         self.initialize_db()
+
 
     def initialize_db(self):
         """
@@ -38,9 +38,9 @@ class MessageDB:
             example_group_names = get_example_group_names()
             self.create_example_groups(example_group_names)
 
+
     def table_exists(self, tablename):
-        """
-        Checks that a certain database table exists.
+        """Checks that a certain database table exists.
 
         Args:
             tablename (str): The name of the table to be checked
@@ -54,17 +54,17 @@ class MessageDB:
                 WHERE type=?
                 AND name=?
                 '''
-        self.cursor.execute(query, ('table', tablename))
+        self._cursor.execute(query, ('table', tablename))
 
-        name = self.cursor.fetchone()
+        name = self._cursor.fetchone()
         if name is not None:
             return True
 
         return False
 
+
     def create_example_groups(self, example_group_names):
-        """
-        Creates a database table with example groups names.
+        """Creates a database table with example groups names.
 
         Args:
             example_group_names (list): A list of example group names
@@ -76,20 +76,20 @@ class MessageDB:
                     name TEXT
                 )
                 '''
-        self.cursor.execute(query)
+        self._cursor.execute(query)
 
         for i in range(1, len(example_group_names)+1):
             query = '''
                     INSERT INTO message_groups (group_id, name)
                     VALUES (?, ?)
                     '''
-            self.cursor.execute(query, (i, example_group_names[i-1]))
+            self._cursor.execute(query, (i, example_group_names[i-1]))
 
-        self.db_connection.commit()
+        self._db_connection.commit()
+
 
     def create_example_messages(self, example_message_texts):
-        """
-        Creates a database table with example message templates.
+        """Creates a database table with example message templates.
 
         Args:
             example_message_texts (list): A list of example message texts
@@ -101,7 +101,7 @@ class MessageDB:
                 text TEXT
             )
             '''
-        self.cursor.execute(query)
+        self._cursor.execute(query)
 
         group_id = 0
         for group in example_message_texts:
@@ -111,46 +111,46 @@ class MessageDB:
                     INSERT INTO messages (message_group, text)
                     VALUES (?, ?)
                 """
-                self.cursor.execute(query, (group_id, message))
+                self._cursor.execute(query, (group_id, message))
 
-        self.db_connection.commit()
+        self._db_connection.commit()
+
 
     def remove_table(self, tablename):
-        """
-        Removes a table from the database.
+        """Removes a table from the database.
 
         Args:
             tablename (str): The name of the table to be removed
         """
         query = f"DROP TABLE IF EXISTS {tablename}"
-        self.cursor.execute(query)
-        self.db_connection.commit()
+        self._cursor.execute(query)
+        self._db_connection.commit()
+
 
     def get_groups(self):
-        """
-        Gets a list of group names from the database.
+        """Gets a list of group names from the database.
 
         Returns:
             list: Group names
         """
         if self.table_exists("message_groups"):
             query = '''SELECT name FROM message_groups'''
-            self.cursor.execute(query)
-            group_names = self.cursor.fetchall()
+            self._cursor.execute(query)
+            group_names = self._cursor.fetchall()
             return group_names
         return None
 
+
     def all_messages(self):
-        """
-        Gets all message templates from the database.
+        """Gets all message templates from the database.
 
         Returns:
             list: All message texts
         """
         if self.table_exists("messages"):
             query = '''SELECT text FROM messages'''
-            self.cursor.execute(query)
-            messages = self.cursor.fetchall()
+            self._cursor.execute(query)
+            messages = self._cursor.fetchall()
             texts_table = []
 
             for message in messages:
@@ -159,9 +159,9 @@ class MessageDB:
             return texts_table
         return None
 
+
     def read_messages_from_group(self, group_id):
-        """
-        Gets all message templates from a certain group.
+        """Gets all message templates from a certain group.
 
         Args:
             group_id (int): the ID of the group
@@ -176,14 +176,14 @@ class MessageDB:
                     FROM messages
                     WHERE message_group=?
                     '''
-            self.cursor.execute(query, (group_id,))
-            messages = self.cursor.fetchall()
+            self._cursor.execute(query, (group_id,))
+            messages = self._cursor.fetchall()
             return messages
         return None
 
+
     def insert_new_message(self, group_id, message_text):
-        """
-        Writes a new message template into the database.
+        """Writes a new message template into the database.
 
         Args:
             group_id (int): The id of the group of the message to be added
@@ -196,7 +196,7 @@ class MessageDB:
                     text TEXT
                 )
                 '''
-        self.cursor.execute(query)
+        self._cursor.execute(query)
 
         query = '''
                 INSERT INTO messages (
@@ -204,13 +204,13 @@ class MessageDB:
                 ) 
                 VALUES (?, ?)
                 '''
-        self.cursor.execute(query, (group_id, message_text))
+        self._cursor.execute(query, (group_id, message_text))
 
-        self.db_connection.commit()
+        self._db_connection.commit()
+
 
     def update_message_group_name(self, group_id, name):
-        """
-        Updates the name of a group into the database group table.
+        """Updates the name of a group into the database group table.
 
         Args:
             group_id (int): id of the group to be updated
@@ -222,12 +222,12 @@ class MessageDB:
                     SET name=? 
                     WHERE group_id=?
                     '''
-            self.cursor.execute(query, (name, group_id))
-            self.db_connection.commit()
+            self._cursor.execute(query, (name, group_id))
+            self._db_connection.commit()
+
 
     def update_message_text(self, message_id, text):
-        """
-        Updates the text of an existing message template.
+        """Updates the text of an existing message template.
 
         Args:
             message_id (int): the id of the message to be updated
@@ -239,12 +239,12 @@ class MessageDB:
                     SET text=? 
                     WHERE id=?
                     '''
-            self.cursor.execute(query, (text, message_id))
-            self.db_connection.commit()
+            self._cursor.execute(query, (text, message_id))
+            self._db_connection.commit()
+
 
     def get_group_name(self, group_id):
-        """
-        Gets the name of a group with a certain id.
+        """Gets the name of a group with a certain id.
 
         Args:
             group_id (int): id of the group
@@ -258,16 +258,16 @@ class MessageDB:
                     FROM message_groups 
                     WHERE group_id=?
                     '''
-            self.cursor.execute(query, (group_id,))
-            group_name = self.cursor.fetchone()
+            self._cursor.execute(query, (group_id,))
+            group_name = self._cursor.fetchone()
 
             if group_name is not None:
                 return group_name[0]
         return None
 
+
     def delete_message_by_id(self, message_id):
-        """
-        Deletes a message with the certain ID from the database.
+        """Deletes a message with the certain ID from the database.
 
         Args:
             group_id (int): id of the message to be deleted
@@ -277,6 +277,6 @@ class MessageDB:
                     DELETE FROM messages 
                     WHERE id=?
                     '''
-            self.cursor.execute(query, (message_id,))
+            self._cursor.execute(query, (message_id,))
 
-            self.db_connection.commit()
+            self._db_connection.commit()

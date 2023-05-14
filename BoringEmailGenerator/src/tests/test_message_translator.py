@@ -9,7 +9,7 @@ class TestMessageTranslator(unittest.TestCase):
         self.translator = MessageTranslator()
 
     def test_translate_message(self):
-        for test_times in range(10):
+        for test_times in range(25):
             with patch('services.message_translator.messagebox.askretrycancel', return_value='True'):
                 result = self.translator.translate_message(
                     'cat',  'english', 'finnish')

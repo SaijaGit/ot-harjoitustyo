@@ -1,7 +1,6 @@
 class Message:
     """
-    The Message class represents a message template with an ID for database
-    and text content.
+    The Message class represents a message template with an ID for database and text content.
 
     Attributes:
         - message_id (int): The unique identifier for the message.

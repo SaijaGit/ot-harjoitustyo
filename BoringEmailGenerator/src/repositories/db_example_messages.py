@@ -1,13 +1,13 @@
 
-"""
-This file provides example group names and message texts for the first use of a program,
-or for the cases when the detabase file is destroyed or missing.
+"""Contents for the example database.
+
+This file provides example group names and message texts for the first use of the program,
+or for the cases when the detabase file is damaged or missing.
 """
 
 
 def get_example_group_names():
-    """
-    Returns a list of example group names.
+    """Returns a list of example group names.
     """
     example_group_names = ["Greetings", "Inquiries", "Meetings",
                            "Sales", "Holidays", "Animals", "Miscellaneous", "Signatures"]
@@ -15,8 +15,7 @@ def get_example_group_names():
 
 
 def get_example_message_texts():
-    """
-    Returns a list of example message texts.
+    """Returns a list of example message texts.
     """
 
     whale = r'''

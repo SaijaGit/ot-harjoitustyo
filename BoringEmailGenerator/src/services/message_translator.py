@@ -4,17 +4,19 @@ from googletrans import Translator, LANGUAGES, models
 
 
 class MessageTranslator:
-    """
+    """Translates the message text.
+    
     A class for translating messages using a free Google Translate 
     library called googletrans.
     """
 
     def __init__(self):
         """Initialize a new instance of the MessageTranslator class."""
-        self.translator = Translator(raise_exception=True)
+        self._translator = Translator(raise_exception=True)
 
     def translate_message(self, text, language_from, language_to):
         """Translate a message from one language to another.
+
             If the translation fails, it is tried max 6 times, and then 
             a message box is opened to ask the user wether they want to cancel or
             try again.
@@ -42,7 +44,7 @@ class MessageTranslator:
             # to catch all possible interrupts just in case.
             # pylint: disable=broad-except
             try:
-                result_translated = self.translator.translate(
+                result_translated = self._translator.translate(
                     text, language_code_to, language_code_from)
                 if isinstance(result_translated, models.Translated):
                     result = result_translated.text

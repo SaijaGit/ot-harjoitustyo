@@ -1,11 +1,11 @@
 import unittest
 from repositories.db_messages import MessageDB
-from config import DATABASE
+from config import TESTDATABASE
 
 
 class TestMessageDB(unittest.TestCase):
     def setUp(self):
-        self.database = MessageDB(DATABASE)
+        self.database = MessageDB(TESTDATABASE)
         self.database.remove_table('message_groups')
         self.database.remove_table('messages')
         self.database.initialize_db()
