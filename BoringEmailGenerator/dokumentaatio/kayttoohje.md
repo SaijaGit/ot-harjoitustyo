@@ -72,10 +72,9 @@ Viestiryhmään voi lisätä uuden viestin klikkaamalla ryhmän otsikkorivillä 
 Viestipohjan lisäyksen voi perua tekstikentän alla olevalla ”Cancel” -painikkeella. Se poistaa uuden viestin tekstikentän sekä siihen liittyvät painikkeet hallintaikkunasta. 
 
 ## Sähköpostiviestien luominen ohjelman pääikkunassa
-### Viestipohjien lisäys
+### Viestipohjien liittäminen viestiin
 
-![](./kuvat/ohje_hallintaikkuna.png)
-
+![](./kuvat/ohje_viestin_kokoaminen.png)
 Valitse lisättävät viestipohjat valikoista haluamassasi järjestyksessä. Viestipohjien tekstit tulostuvat tekstikenttään, jossa voit muokata niitä tai kirjoittaa viestiin myös muuta tekstiä. Korvaa hakasuluilla pakollisiksi merkityt tiedot oikeilla tiedoilla. 
 
 ### Viestin kääntäminen
@@ -91,8 +90,6 @@ Ohjelma tarjoaa mahdollisuuden viestin kääntämiseen. Valitse lähtökieli ”
 Koska käännös haetaan internetissä toimivasta käännöspalvelusta, se saattaa joskus epäonnistua, esimerkiksi verkkoyhteyden tai palvelimen ongelmien vuoksi. Ohjelma yrittää pyytää käännöstä 5 kertaa, mutta jos se ei tuota tulosta, ohjelma ilmoittaa epäonnistumisesta ja pyytää käyttäjää valitsemaan jatketaanko yrittämistä uudet 5 kertaa, vai peruutetaanko käännöspyyntö.
 
 ## Valmiin viestin vieminen sähköpostiohjelmaan
-
-
 
 Kun sähköpostiviesti on valmis, klikkaa ”Copy”, jolloin tekstialueen sisältö kopioituu tietokoneen leikepöydälle, josta voit liittää sen edelleen sähköpostiohjelmaasi.
 
