@@ -1,58 +1,74 @@
-# Ohjelmistotekniikka, kevät 2023
+# Boring Email Generator
 
-## Tehtävät ja harjoitustyö
+Sovellus on harjoitustyö Helsingin yliopiston kurssille Ohjelmistotekniikka, kevät 2023.
 
-### Viikko 1
-#### Tehtävät
-- [gitlog.txt](./laskarit/viikko1/gitlog.txt)
-- [komentorivi.txt](./laskarit/viikko1/komentorivi.txt)
-- [Huomautus viikon 1 tehtävistä!](./laskarit/viikko1/Huomautus%20viikon%201%20teht%C3%A4vist%C3%A4!)
+Sovelluksen tarkoitus on auttaa käyttäjää luomaan yksinkertaisia sähköpostiviestejä nopeasti ja helposti.
+Monet ihmiset joutuvat kirjoittamaan työssään tylsiä rutiiniviestejä, joissa on yhä uudelleen toistuvaa sisältöä, kuten esimerkiksi kaupallisia ehtoja. 
+Tämän sovelluksen avulla käyttäjä voi tallentaa usein käyttämänsä viestitekstit sovellukseen helposti löydettäviksi viestipohjiksi, ja koota ja kopioida niistä uusia viestejä sähköpostiohjelmaan liitettäväksi.
 
+## Käyttöympäristö ja Python-versio
+Ohjelma on testattu käyttäen Windows 10 -tietokonetta ja Pytho-versiota 3.11 sekä Linux-konetta ja Python-versiota 3.10. On mahdollista, että se ei toimi samalla tavalla muissa järjestelmissä ja varsinkaan vanhemmilla Python-versioilla.
 
-### Viikko 2
-#### Tehtävät
-- [maksukortti](./laskarit/viikko2/maksukortti)
-- [unicafe](./laskarit/viikko2/unicafe)
-- [coverage report](https://github.com/SaijaGit/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot%202023-03-23%20at%2003-09-46%20Coverage%20report.png)
+## Dokumentaatio
+- [Käyttöohje](./dokumentaatio/kayttoohje.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+- [Testausdokumentti](./dokumentaatio/testaus.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+- [Changelog](./dokumentaatio/Changelog.md)
 
-#### Harjoitustyö
-- [Vaatimusmäärittely](./BoringEmailGenerator/dokumentaatio/vaatimusmaarittely.md)
-- [Työaikakirjanpito](./BoringEmailGenerator/dokumentaatio/tuntikirjanpito.md)
+## Ohjelman asennus ja ajaminen Poetryllä
 
+- Asenna riippuvuudet komennolla:
 
-### Viikko 3
-#### Tehtävät
-- [Monopoli](./laskarit/viikko3/monopoli.md)
-- [Laajennettu Monopoli](./laskarit/viikko3/laajennettu_monopoli.md)
-- [Sekvenssikaavio](./laskarit/viikko3/sekvenssikaavio.md)
-- [Laajempi sekvenssikaavio](./laskarit/viikko3/laajempi_sekvenssikaavio.md)
+```bash
+poetry install
+```
 
-#### Harjoitustyö
-- [Boring Email Generator](./BoringEmailGenerator)
-- [Testikattavuusraportti 3.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
-- [Changelog](./BoringEmailGenerator/dokumentaatio/Changelog.md)
+- Alusta ohjelman suoritus komennolla:
 
+```bash
+poetry run invoke build
+```
 
-### Viikko 4
-#### Harjoitustyö
-- [Testikattavuusraportti 17.4.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-04-17%20at%2004-54-02%20Coverage%20report.png)
+- Käynnistä sovellus komennolla:
 
+```bash
+poetry run invoke start
+```
 
+## Komentorivitoiminnot
 
-### Viikko 5
-#### Harjoitustyö
-- [Testikattavuusraportti 25.4.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
-- [Arkkitehtuurikuvaus](./BoringEmailGenerator/dokumentaatio/arkkitehtuuri.md)
-- [Release viikko5](https://github.com/SaijaGit/ot-harjoitustyo/releases/tag/viikko5)
+### Ohjelman suorittaminen
 
+Käynnistä ohjelma komennolla:
 
-### Viikko 6
-#### Harjoitustyö
-- [Testikattavuusraportti 2.5.2023](./BoringEmailGenerator/dokumentaatio/testaus.md)
+```bash
+poetry run invoke start
+```
 
+### Testaus
 
-### Lopullinen palautus
-- [Testikattavuusraportti 11.5.2023](./BoringEmailGenerator/dokumentaatio/kuvat/Screenshot%202023-05-11%20at%2012-56-03%20Coverage%20report.png)
+Käynnistä testit komennolla:
 
-#### Loppupalautus
+```bash
+poetry run invoke test
+```
 
+### Testikattavuus
+
+Generoi testikattavuusraportti komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Komento generoi testituloksista raportin [index.htm](./dokumentaatio/kuvat/Screenshot%202023-05-11%20at%2012-56-03%20Coverage%20report.png) _htmlcov_-hakemistoon.
+
+### Pylint
+
+Suorita tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset komennolla:
+
+```bash
+poetry run invoke lint
+```
