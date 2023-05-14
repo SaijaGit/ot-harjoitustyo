@@ -7,18 +7,22 @@ Sovelluksen tarkoitus on auttaa käyttäjää luomaan yksinkertaisia sähköpost
 Käyttäjä voi tallentaa usein kirjoittamansa viestit sovellukseen. Viestipohjat jaotellaan omiin ryhmiinsä, mikä helpottaa halutun tekstipätkän löytämistä. Valitut viestin osat näytetään tekstikentässä, jossa niitä voi tarvittaessa myös muokata. Kun viesti on valmis, käyttäjä voi kopioida sen liittääkseen sen sähköpostiohjelmaansa.
 
 
-## Perusversion tarjoama toiminnallisuus (18.4. kaikki tehty)
+## Perusversion tarjoama toiminnallisuus
 -	Sovelluksessa on valmiina viestiryhmät ja muutamia yleisiä viestipohjia.
 -	Viestipohjat on jaoteltu ryhmiin ja ne saa näkyviin kyseisen ryhmän napista klikkaamalla.  
 -	Viestipohjat aukeavat pudotusvalikoksi, josta ne voi valita klikkaamalla.
 -	Valitut viestin osat tulostuvat tekstikenttään, jossa niitä voi muokata.
+-	Tekstikentän sisällön voi kääntää toiselle kielelle valitsemalla kielet pudotusvalikoista ja painamalla "Translate"-nappia.
 -	Kun viesti on valmis, sen voi kopioida tietokoneen leikepöydälle ”Copy”-napista.
 -	Tekstikentän voi tyhjentää ”Delete”-napilla.
 -	Käyttäjä voi muokata viestiryhmiä ja -pohjia ”Modify templates”-napista aukeavassa ikkunassa.
 -	Muokkausikkunassa voi vaihtaa ryhmien nimet, lisätä ryhmiin uusia viestipohjia sekä poistaa viestipohjia sovelluksesta.
+- Viestipohjiin voi merkitä "pakollista" tietoa kirjoittamalla sopivan avainsanan hakasulkeisiin. Ohjelma huomauttaa mahdollisesti puuttuvasta tiedosta, jos käyttäjä yrittää kopioida viestin, jossa on tällaisia merkintöjä.
+
 
 ## Käyttäjät
 Sovelluksessa on vain yksi käyttäjä. Koska sovellus on tarkoitettu toimimaan työpöytäsovelluksena ja tallentamaan tiedot käyttäjän omalle tietokoneelle, siinä ei tarvita erillistä käyttäjätiliä tai sisäänkirjautumista.
+
 
 ## Käyttöliittymäluonnos
 Sovelluksessa on kaksi ikkunaa. Ensimmäisenä avautuu pääikkuna, jossa viestit koostetaan. ”Modify templates”-napilla aukeaa muokkausikkuna, jossa sovelluksen tallentamia viestipohjia voi muokata.
@@ -27,9 +31,10 @@ Sovelluksessa on kaksi ikkunaa. Ensimmäisenä avautuu pääikkuna, jossa viesti
 ![](./kuvat/kayttoliittyma2.png)
 Käyttöliittymäluonnokset on tehty Excelillä, ja kuvitukset ovat Excelin ikoneita.
 
-## Jatkokehitysideat
-Sovellukseen on lisätty viestien käännösmahdollisuus googletrans-kirjaston avulla. (Tehty 25.4.)
+Lopullisesta käyttöliittymästä tuli hyvin samankaltainen luonnoksen kanssa, mutta lisäksi siinä on kielivalikot ja "Translate"-nappi käännöstä varten. Käyttöliittymässä ei ole myöskään kuvituksia.
 
+
+## Jatkokehitysideat
 Sovellukseen voisi kehittää hakutoimintoja ja filttereitä haluttujen viestin löytämisen helpottamiseksi. Sopivia filttereitä voisivat olla esimerkiksi viestin kieli ja tyylilaji (muodollinen / tuttavallinen). Tätä varten ohjelmaan pitäisi lisätä viestikategoriat, jotka lisättäisiin viesteille luomisvaiheessa.
 
 Toinen hyödyllinen ominaisuus olisi mahdollisuus siirtää viestejä ryhmästä toiseen ja vaihtaa niiden järjestystä ryhmässä.
