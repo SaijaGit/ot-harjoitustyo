@@ -3,8 +3,29 @@
 ## Ohjelmapaketin lataaminen Githubista ja purkaminen
 Lataa ohjelman uusin [release](https://github.com/SaijaGit/ot-harjoitustyo/releases) Githubista valitsemalla _Assets_-osion alta _Source code_.  
 
-## Ohjelman käynnistäminen Poetry-ympäristössä
+## Konfigurointi
 
+Ohjelma tallentaa viestipohjat sqlite-tietokannaksi tiedostoon, joka sijaitsee ohjelman juuressa _data_-hakemistossa. Testausta varten hakemistoon luodaan oma tiedosto. Jos tiedostoja ei ole, ohjelma luo ne oletusnimillä "messages.db" ja "test_messages.db".
+Tiedostojen nimiä voi halutessaan muokata käynnistyshakemistossa _.env_-tiedostossa, jonka muoto on seuraava:
+
+```
+DATABASE = messages.db
+TESTDATABASE = test_messages.db
+```
+
+## Ohjelman asennus ja käynnistäminen Poetry-ympäristössä
+
+- Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+- Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
 
 ## Ohjelman käytön aloittaminen
 
@@ -51,10 +72,9 @@ Viestiryhmään voi lisätä uuden viestin klikkaamalla ryhmän otsikkorivillä 
 Viestipohjan lisäyksen voi perua tekstikentän alla olevalla ”Cancel” -painikkeella. Se poistaa uuden viestin tekstikentän sekä siihen liittyvät painikkeet hallintaikkunasta. 
 
 ## Sähköpostiviestien luominen ohjelman pääikkunassa
-### Viestipohjien lisäys
+### Viestipohjien liittäminen viestiin
 
-![](./kuvat/ohje_hallintaikkuna.png)
-
+![](./kuvat/ohje_viestin_kokoaminen.png)
 Valitse lisättävät viestipohjat valikoista haluamassasi järjestyksessä. Viestipohjien tekstit tulostuvat tekstikenttään, jossa voit muokata niitä tai kirjoittaa viestiin myös muuta tekstiä. Korvaa hakasuluilla pakollisiksi merkityt tiedot oikeilla tiedoilla. 
 
 ### Viestin kääntäminen
@@ -70,8 +90,6 @@ Ohjelma tarjoaa mahdollisuuden viestin kääntämiseen. Valitse lähtökieli ”
 Koska käännös haetaan internetissä toimivasta käännöspalvelusta, se saattaa joskus epäonnistua, esimerkiksi verkkoyhteyden tai palvelimen ongelmien vuoksi. Ohjelma yrittää pyytää käännöstä 5 kertaa, mutta jos se ei tuota tulosta, ohjelma ilmoittaa epäonnistumisesta ja pyytää käyttäjää valitsemaan jatketaanko yrittämistä uudet 5 kertaa, vai peruutetaanko käännöspyyntö.
 
 ## Valmiin viestin vieminen sähköpostiohjelmaan
-
-
 
 Kun sähköpostiviesti on valmis, klikkaa ”Copy”, jolloin tekstialueen sisältö kopioituu tietokoneen leikepöydälle, josta voit liittää sen edelleen sähköpostiohjelmaasi.
 
