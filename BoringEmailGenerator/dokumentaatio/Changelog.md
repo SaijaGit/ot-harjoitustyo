@@ -26,3 +26,8 @@
 - Lisättiin testit MessageChecker-luokalle.
 - Lisätty MessageTranslator-luokkaan myös message box, joka informoi käyttäjää jos käännöstä ei saada noudettua.
 - Lisätty Docstring-kommentit luokille MessageChecker ja MessageTranslator.
+
+## Loppupalautus
+- Lisätty loput Docstring-kommentit.
+- Vaihdettu tietokantatiedoston tallennuspoluksi data-kansio.
+- Korjattu bugeja.
