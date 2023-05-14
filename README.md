@@ -25,12 +25,6 @@ Ohjelma on testattu käyttäen Windows 10 -tietokonetta ja Pytho-versiota 3.11 s
 poetry install
 ```
 
-- Alusta ohjelman suoritus komennolla:
-
-```bash
-poetry run invoke build
-```
-
 - Käynnistä sovellus komennolla:
 
 ```bash
