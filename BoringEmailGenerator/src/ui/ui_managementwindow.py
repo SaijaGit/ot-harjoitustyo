@@ -48,7 +48,7 @@ class ManagementWindow(Toplevel):
         self._new_message_buttons = []
         self._create_message_entries = {}
 
-        self.minsize(840, 0)
+        self.minsize(860, 0)
 
         self._canvas = Canvas(self, width=800, height=800)
         self._canvas.pack(side=LEFT, fill=BOTH, expand=True)

@@ -250,6 +250,7 @@ class MainWindow:
         """
         self._group_names = self._message_handler.group_name_list()
         for i in range(8):
+            self._comboboxes[i].group_name = self._group_names[i]
             self._comboboxes[i].set(self._group_names[i])
 
 
